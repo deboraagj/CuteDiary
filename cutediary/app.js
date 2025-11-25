@@ -1,9 +1,9 @@
+// PORTA
+const PORT = 8080
+
 // IMPORTAÇÃO DO MÓDULO EXPRESS
 const express = require("express")
-
-// DECLARAÇÃO DO OBJETO PRINCIPAL
 const app = express()
-const PORT = 8080
 
 // CONFIGURAÇÃO DO HANDLEBARS
 const handlebars = require("express-handlebars")
