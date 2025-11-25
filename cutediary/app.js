@@ -5,6 +5,23 @@ const express = require("express")
 const app = express()
 const PORT = 8080
 
+// CONFIGURAÇÃO DO HANDLEBARS
+const handlebars = require("express-handlebars")
+
+app.engine('handlebars', handlebars.engine({
+    defaultLayout: 'main',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true
+    }
+}));
+
+// CONFIGURAÇÃO DO HANDLEBARS
+
+
+app.set('view engine', 'handlebars');
+
+// CONFIGURAÇÃO DO 
 //ROTAS
 
 // TESTANDO SERVIDOR
