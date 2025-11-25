@@ -16,18 +16,29 @@ app.engine('handlebars', handlebars.engine({
     }
 }));
 
-// CONFIGURAÇÃO DO HANDLEBARS
-
-
 app.set('view engine', 'handlebars');
 
-// CONFIGURAÇÃO DO 
-//ROTAS
+// CONFIGURAÇÃO DO BODY PARSER
+const bodyParser = require("body-parser")
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+// CONFIGURAÇÃO DO PATH
+const path = require("path")
+
+app.use(express.static(path.join(__dirname, "public")));
+
+// =====
+// ROTAS
+// =====
 
 // TESTANDO SERVIDOR
+
+//READ
 app.get("/", function(req, res){
-    res.write("Hello Wolrd!")
-    res.end()
+    res.render("home")
 })
 
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`))
+
+app.listen(PORT, () => console.log(`Servidor rodando na url http://localhost:${PORT}`))
