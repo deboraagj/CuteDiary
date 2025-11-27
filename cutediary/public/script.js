@@ -53,7 +53,7 @@ function renderCalendar(date){
 
 			const finalDate = `${year}-${monthFormatted}-${day}`
 
-			window.location.href = `/day?data=${finalDate}`
+			window.location.href = `/day?date=${finalDate}`
 		})
 
         // PARA INSERIR OS ELEMENTOS
