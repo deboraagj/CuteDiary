@@ -5,6 +5,9 @@ const PORT = 8080
 const express = require("express")
 const app = express()
 
+// IMPORTANDO BANCO DE DADOS
+const Diary = require("./models/Diary")
+
 // CONFIGURAÇÃO DO HANDLEBARS
 const handlebars = require("express-handlebars")
 
@@ -35,10 +38,23 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // TESTANDO SERVIDOR
 
-//READ
+// MOSTRAR PÁGINA INICIAL
 app.get("/", function(req, res){
     res.render("home")
 })
 
+// MOSTRAR PÁGINA DO DIA
+app.get('/day', (req, res) => {
+    
+    const dataSelecionada = req.query.data;
+
+    const dataExibicao = new Date(dataSelecionada).toLocaleDateString('pt-BR'); 
+
+    res.render('day', {
+
+        dataExibicao: dataExibicao, 
+        dataSalvar: dataSelecionada 
+    });
+});
 
 app.listen(PORT, () => console.log(`Servidor rodando na url http://localhost:${PORT}`))

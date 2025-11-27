@@ -31,7 +31,7 @@ function renderCalendar(date){
 
     // LOOP PARA GERAR ESPAÇOS VAZIOS NO CALENDÁRIO
 	for(let i=0; i<firstDayMonth; i++){
-		daysContainer.innerHTML = "<div></div>"
+		daysContainer.innerHTML += "<div></div>"
 	}
 	
     // LOOP PARA GERAR DIAS NUMERADOS NO CALENDÁRIO
@@ -43,6 +43,18 @@ function renderCalendar(date){
         if(year === today.getFullYear() && month === today.getMonth() && i === today.getDate()){
             dayElement.classList.add("active")
         }
+
+		// INTERAÇÃO COM OS DIAS
+		dayElement.addEventListener("click", () =>{
+
+			// FORMATAÇÃO DA DATA PARA COMPATIBILIDADE COM O SQL
+			const day = i.toString().padStart(2, "0")
+			const monthFormatted = (month + 1).toString().padStart(2, "0")
+
+			const finalDate = `${year}-${monthFormatted}-${day}`
+
+			window.location.href = `/day?data=${finalDate}`
+		})
 
         // PARA INSERIR OS ELEMENTOS
         daysContainer.appendChild(dayElement)
