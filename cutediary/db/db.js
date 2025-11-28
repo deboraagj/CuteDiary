@@ -2,12 +2,13 @@
 
 const Sequelize = require("sequelize")
 const sequelize = new Sequelize(
-    "deboraagj",
+    "cutediary",
     "admin",
     "admin",
     {
         host: "localhost",
-        dialect: "mysql"
+        dialect: "mysql",
+        timezone: "-03:00"
     }
 )
 
