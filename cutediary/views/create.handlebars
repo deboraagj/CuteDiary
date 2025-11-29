@@ -1,0 +1,19 @@
+<h2>Nova Anotação para {{dateShow}}</h2>
+
+<form action="/add" method="POST">
+    
+    {{! CAMPO OCULTO: ENVIANDO A DATA SELECIONADA PARA O SERVIDOR }}
+    <input type="hidden" name="date" value="{{dateSave}}">
+    
+    {{#if error}}
+        <p style="color: red;">{{error}}</p>
+    {{/if}}
+
+    <label for="title">Título:</label>
+    <input type="text" id="title" name="title" value="{{title}}" required><br><br>
+
+    <label for="text">Anotação:</label>
+    <textarea id="text" name="text" required>{{text}}</textarea><br><br>
+    
+    <button type="submit">Salvar Anotação</button>
+</form>

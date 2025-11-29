@@ -11,7 +11,7 @@ const Diary = db.sequelize.define("Diary",{
         allowNull: false
     },
     date: {
-        type: db.Sequelize.DATE,
+        type: db.Sequelize.DATEONLY,
         allowNull: false
     }
 })

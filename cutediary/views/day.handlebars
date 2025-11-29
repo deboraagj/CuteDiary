@@ -1,32 +1,27 @@
-<h2>Nova Anotação para {{dateShow}}</h2>
+<h1> VISÃO GERAL DO DIA {{dateShow}}</h1>
 
-<form action="/add" method="POST">
-    
-    {{! CAMPO OCULTO: ENVIANDO A DATA SELECIONADA PARA O SERVIDOR }}
-    <input type="hidden" name="date" value="{{dateSave}}">
-    
-    {{#if error}}
-        <p style="color: red;">{{error}}</p>
-    {{/if}}
+{{#if diaries}}
+{{#each diaries}}
+<div>
+    <h3>{{this.title}}</h3>
+    <p>{{this.text}}</p>
+    {{!-- <a href="/delete/{{id}}"><button class="">Deletar</button></a> --}}
+    <a href="/edit/{{this.id}}">Editar</a>
 
-    <label for="title">Título:</label>
-    <input type="text" id="title" name="title" value="{{title}}" required><br><br>
-
-    <label for="text">Anotação:</label>
-    <textarea id="text" name="text" required>{{text}}</textarea><br><br>
-    
-    <button type="submit">Salvar Anotação</button>
-</form>
+    <form action="/delete/{{this.id}}?_method=DELETE" method="POST" style="display: inline;">
+        {{! O parâmetro "?_method=DELETE" é a chave para o method-override }}
+         <input type="hidden" name="dateRedirect" value="{{dateSave}}">
+        <button >Deletar</button>
+    </form>
 
 
-{{!-- <h1>MINHAS ANOTAÇÕES</h1>
 
-<form action="/add" method="post">
-    <label for="titulo">Título:</label><br>
-    <input type="text" id="titulo" name="titulo" placeholder="Digite o título" required><br><br>
+    {{! ⭐️ Botão Deletar: Usa o atributo data-id para o JS identificar qual anotação deletar }}
+    {{!-- <button class="delete-btn" data-id="{{this.id}}">Deletar</button> --}}
+</div>
+{{/each}}
+{{else}}
+<p>Nenhuma anotação encontrada para esta data. Crie uma acima!</p>
+{{/if}}
 
-    <label for="texto">Texto:</label><br>
-    <textarea id="texto" name="texto" rows="5" placeholder="Digite o texto" required></textarea><br><br>
-
-    <button type="submit">Salvar</button>
-</form> --}}
+<a href="/create?date={{dateSave}}">Criar anotação</a>

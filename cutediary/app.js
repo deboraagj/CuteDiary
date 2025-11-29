@@ -5,6 +5,10 @@ const PORT = 8080
 const express = require("express")
 const app = express()
 
+// IMPORTAÇÃO DO METHOD-OVERRIDE
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
 // IMPORTANDO BANCO DE DADOS
 const Diary = require("./models/Diary")
 
@@ -18,28 +22,23 @@ app.engine('handlebars', handlebars.engine({
         allowProtoMethodsByDefault: true
     }
 }));
-
 app.set('view engine', 'handlebars');
 
 // CONFIGURAÇÃO DO BODY PARSER
 const bodyParser = require("body-parser")
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // CONFIGURAÇÃO DO PATH
 const path = require("path")
-
 app.use(express.static(path.join(__dirname, "public")));
 
 // =====
 // ROTAS
 // =====
 
-// TESTANDO SERVIDOR
-
 // MOSTRAR PÁGINA INICIAL
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
     res.render("home")
 })
 
@@ -48,29 +47,61 @@ app.get('/day', (req, res) => {
 
     let dateSelected = req.query.date;
 
-    const dateObj = new Date(dateSelected);
-    const dateShow = dateObj.getDate().toString().padStart(2, '0') + '/' + (dateObj.getMonth() + 1).toString().padStart(2, '0') + '/' + dateObj.getFullYear();
+    const [year, month, day] = dateSelected.split("-");
+    const dateShow = `${day}/${month}/${year}`;
 
-    res.render('day', {
-        dateShow: dateShow,
-        dateSave: dateSelected
-    });
+    Diary.findAll().then(function(diaries){
+        res.render('day', {
+            dateShow: dateShow,
+            dateSave: dateSelected,
+            diaries: diaries
+        });
+    })
 });
 
-// CRIAR REGISTROS NO SERVIDOR
-app.post("/add", function(req, res){
+// MOSTRAR PÁGINA DE CRIAÇÃO DE REGISTROS
+app.get("/create", function(req, res){
+    const dateSelected = req.query.date;
 
-   const dateForm =  req.body.date;
+    const [year, month, day] = dateSelected.split("-");
+    const dateShow = `${day}/${month}/${year}`;
+
+    res.render("create", {
+        dateShow: dateShow,
+        dateSave: dateSelected,
+    });
+})
+
+// CRIAR REGISTROS NO BANCO DE DADOS
+app.post("/add", function(req, res){
+    const dateToRedirect = req.body.date;
 
     Diary.create({
             title: req.body.title,
             text: req.body.text,
-            date: new Date(dateForm)
+            date: req.body.date
     }).then(function(){
         console.log("REGISTRO FEITO COM SUCESSO")
+        res.redirect(`day?date=${dateToRedirect}`)
     }).catch(function(erro){
         console.log("ERRO AO CRIAR REGISTRO"+erro)
     });
-});   
+});
+
+// ATUALIZAR REGISTRPOS NO BANCO DE DADOS
+
+// DELETAR REGISTROS DO BANCO DE DADOS
+app.delete("/delete/:id", function(req, res){
+    const dateToRedirect = req.body.dateRedirect;
+
+    Diary.destroy({where: {"id": req.params.id}}).then(function(){
+        console.log("DELETADO COM SUCESSO!")
+        res.redirect(`/day?date=${dateToRedirect}`)
+    }).catch(function(erro){
+        console.log("ERRO AO DELETAR"+erro)
+        res.redirect(`/day?date=${dateToRedirect}`)
+    })
+})
+
 
 app.listen(PORT, () => console.log(`Servidor rodando na url http://localhost:${PORT}`));

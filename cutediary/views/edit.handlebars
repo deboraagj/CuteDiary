@@ -1,0 +1,20 @@
+<h2>Editar Anotação do dia {{dateShow}}</h2>
+
+{{! O formulário agora aponta para a rota /edit e usa o método POST }}
+<form action="/edit" method="POST">
+    
+    {{! CAMPO OCULTO: ID DO REGISTRO que está sendo editado }}
+    <input type="hidden" name="id" value="{{diary.id}}">
+    
+    <label for="title">Título:</label>
+    {{! O valor inicial do campo é o valor do registro.diary.title }}
+    <input type="text" id="title" name="title" value="{{diary.title}}" required><br><br>
+
+    <label for="text">Anotação:</label>
+    {{! O conteúdo inicial da textarea é o valor do registro.diary.text }}
+    <textarea id="text" name="text" required>{{diary.text}}</textarea><br><br>
+    
+    <button type="submit">Salvar Edição</button>
+    {{! Botão para voltar para a página principal (Home) }}
+    <a href="/">Cancelar</a>
+</form>
