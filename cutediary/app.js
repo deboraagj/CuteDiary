@@ -31,11 +31,12 @@ app.use(bodyParser.json());
 
 // CONFIGURAÇÃO DO PATH
 const path = require("path")
+const { where } = require("sequelize")
 app.use(express.static(path.join(__dirname, "public")));
 
-// =====
-// ROTAS
-// =====
+// ===== //
+// ROTAS //
+// ===== //
 
 // MOSTRAR PÁGINA INICIAL
 app.get("/", function(req, res) {
@@ -43,9 +44,11 @@ app.get("/", function(req, res) {
 })
 
 // MOSTRAR PÁGINA DO DIA
-app.get('/day', (req, res) => {
+app.get("/day",(req, res) => {
 
     let dateSelected = req.query.date;
+
+    const dateObj =  new Date()
 
     const [year, month, day] = dateSelected.split("-");
     const dateShow = `${day}/${month}/${year}`;
@@ -74,7 +77,7 @@ app.get("/create", function(req, res){
 
 // CRIAR REGISTROS NO BANCO DE DADOS
 app.post("/add", function(req, res){
-    const dateToRedirect = req.body.date;
+    const date = req.body.date;
 
     Diary.create({
             title: req.body.title,
@@ -82,24 +85,54 @@ app.post("/add", function(req, res){
             date: req.body.date
     }).then(function(){
         console.log("REGISTRO FEITO COM SUCESSO")
-        res.redirect(`day?date=${dateToRedirect}`)
+        res.redirect(`day?date=${date}`)
     }).catch(function(erro){
         console.log("ERRO AO CRIAR REGISTRO"+erro)
+        res.redirect(`day?date=${date}`)
     });
 });
 
+// MOSTRAR PÁGINA DE EDIÇÃO COM A ANOTAÇÃO SELECIONADA
+app.get("/edit/:id", function(req, res){
+    Diary.findOne({where: {"id": req.params.id}}).then(function(diaries){
+        res.render("edit", {
+            diaries: diaries.dataValues
+        })
+    }).catch(function(erro){
+        console.log("ERRO AO BUSCAR REGISTRO PARA EDIÇÃO: "+erro);
+    })
+})
+
 // ATUALIZAR REGISTRPOS NO BANCO DE DADOS
+app.patch("/edit/:id", function(req, res){
+     const date = req.body.date;
+
+    Diary.update({where: {"id": req.params.id}},
+    {
+        title: req.body.title,
+        text: req.body.text,
+        date: req.body.date
+    }).then(function(){
+        console.log("ATULIZADO COM SUCESSO")
+        res.redirect(`/day?date=${date}`)
+    }).catch(function(erro){
+        console.log("ERRO AO ATUALIZAR REGISTRO: " + erro)
+        res.redirect(`/day?date=${date}`)
+    })
+})
 
 // DELETAR REGISTROS DO BANCO DE DADOS
-app.delete("/delete/:id", function(req, res){
-    const dateToRedirect = req.body.dateRedirect;
+app.delete("/delete/:id/:date", function(req, res){
+    const date = req.params.date;
+
+    console.log("data captura:",date);
 
     Diary.destroy({where: {"id": req.params.id}}).then(function(){
         console.log("DELETADO COM SUCESSO!")
-        res.redirect(`/day?date=${dateToRedirect}`)
+        res.redirect(`/day?date=${date}`)
     }).catch(function(erro){
         console.log("ERRO AO DELETAR"+erro)
-        res.redirect(`/day?date=${dateToRedirect}`)
+        res.redirect(`/day?date=${date}`)
     })
 })
 

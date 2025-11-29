@@ -6,16 +6,16 @@
     <h3>{{this.title}}</h3>
     <p>{{this.text}}</p>
     {{!-- <a href="/delete/{{id}}"><button class="">Deletar</button></a> --}}
-    <a href="/edit/{{this.id}}">Editar</a>
+    <a href="/edit/{{this.id}}"> Editar </a>
 
-    <form action="/delete/{{this.id}}?_method=DELETE" method="POST" style="display: inline;">
-        {{! O parâmetro "?_method=DELETE" é a chave para o method-override }}
-         <input type="hidden" name="dateRedirect" value="{{dateSave}}">
-        <button >Deletar</button>
-    </form>
-
-
-
+   <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST" style="display: inline;">
+    
+    {{! ⭐️ O USO DE ../ GARANTE O ACESSO À VARIÁVEL DE FORA DO LOOP ⭐️ }}
+    
+    <button>Deletar</button>
+</form>
+</form>
+</form>
     {{! ⭐️ Botão Deletar: Usa o atributo data-id para o JS identificar qual anotação deletar }}
     {{!-- <button class="delete-btn" data-id="{{this.id}}">Deletar</button> --}}
 </div>
@@ -25,3 +25,4 @@
 {{/if}}
 
 <a href="/create?date={{dateSave}}">Criar anotação</a>
+
