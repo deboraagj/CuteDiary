@@ -1,5 +1,5 @@
-// PORTA
-const PORT = 8080
+// IMPORTAÇÃO DO DOTENV
+require('dotenv').config()
 
 // IMPORTAÇÃO DO MÓDULO EXPRESS
 const express = require("express")
@@ -14,7 +14,6 @@ const Diary = require("./models/Diary")
 
 // CONFIGURAÇÃO DO HANDLEBARS
 const handlebars = require("express-handlebars")
-
 app.engine('handlebars', handlebars.engine({
     defaultLayout: 'main',
     runtimeOptions: {
@@ -39,102 +38,117 @@ app.use(express.static(path.join(__dirname, "public")));
 // ===== //
 
 // MOSTRAR PÁGINA INICIAL
-app.get("/", function(req, res) {
+app.get("/", async function(req, res) {
     res.render("home")
 })
 
 // MOSTRAR PÁGINA DO DIA
-app.get("/day",(req, res) => {
+app.get("/day", async (req, res) => {
 
-    let dateSelected = req.query.date;
+    let dateSelected = req.query.date
 
-    const dateObj =  new Date()
+    const [year, month, day] = dateSelected.split("-")
+    const dateShow = `${day}/${month}/${year}`
 
-    const [year, month, day] = dateSelected.split("-");
-    const dateShow = `${day}/${month}/${year}`;
-
-    Diary.findAll().then(function(diaries){
+    try {
+        const diaries = await Diary.findAll()
         res.render('day', {
             dateShow: dateShow,
             dateSave: dateSelected,
             diaries: diaries
-        });
-    })
-});
+        })
+    } catch (erro) {
+        console.log("ERRO AO LISTAR DIÁRIOS " + erro)
+    }
+})
 
 // MOSTRAR PÁGINA DE CRIAÇÃO DE REGISTROS
-app.get("/create", function(req, res){
-    const dateSelected = req.query.date;
+app.get("/create", async function(req, res){
+    let dateSelected = req.query.date
 
-    const [year, month, day] = dateSelected.split("-");
-    const dateShow = `${day}/${month}/${year}`;
+    const [year, month, day] = dateSelected.split("-")
+    const dateShow = `${day}/${month}/${year}`
 
     res.render("create", {
         dateShow: dateShow,
-        dateSave: dateSelected,
-    });
+        dateSave: dateSelected
+    })
+})
+
+// MOSTRAR PÁGINA DE EDIÇÃO COM A ANOTAÇÃO SELECIONADA
+app.get("/edit/:id/:date", async function(req, res){
+    let date = req.params.date
+
+    console.log("data mostrar:", date)
+
+    const [year, month, day] = date.split("-")
+    const dateShow = `${day}/${month}/${year}`
+
+    try {
+        const diaries = await Diary.findOne({ where: { id: req.params.id } })
+        res.render("edit", {
+            diaries: diaries.dataValues,
+            dateShow: dateShow,
+            dateSave: date
+        })
+    } catch (erro) {
+        console.log("ERRO AO BUSCAR REGISTRO PARA EDIÇÃO: " + erro)
+    }
 })
 
 // CRIAR REGISTROS NO BANCO DE DADOS
-app.post("/add", function(req, res){
-    const date = req.body.date;
+app.post("/add", async function(req, res){
+    const date = req.body.date
 
-    Diary.create({
+    try {
+        await Diary.create({
             title: req.body.title,
             text: req.body.text,
             date: req.body.date
-    }).then(function(){
+        })
         console.log("REGISTRO FEITO COM SUCESSO")
         res.redirect(`day?date=${date}`)
-    }).catch(function(erro){
-        console.log("ERRO AO CRIAR REGISTRO"+erro)
+    } catch (erro) {
+        console.log("ERRO AO CRIAR REGISTRO " + erro)
         res.redirect(`day?date=${date}`)
-    });
-});
-
-// MOSTRAR PÁGINA DE EDIÇÃO COM A ANOTAÇÃO SELECIONADA
-app.get("/edit/:id", function(req, res){
-    Diary.findOne({where: {"id": req.params.id}}).then(function(diaries){
-        res.render("edit", {
-            diaries: diaries.dataValues
-        })
-    }).catch(function(erro){
-        console.log("ERRO AO BUSCAR REGISTRO PARA EDIÇÃO: "+erro);
-    })
+    }
 })
 
-// ATUALIZAR REGISTRPOS NO BANCO DE DADOS
-app.patch("/edit/:id", function(req, res){
-     const date = req.body.date;
+// ATUALIZAR REGISTROS NO BANCO DE DADOS
+app.patch("/edit/:id/:date", async function(req, res){
+    let date = req.body.date
 
-    Diary.update({where: {"id": req.params.id}},
-    {
-        title: req.body.title,
-        text: req.body.text,
-        date: req.body.date
-    }).then(function(){
-        console.log("ATULIZADO COM SUCESSO")
+    console.log("data captura ATUALIZAR:", date)
+
+    try {
+        await Diary.update({
+            title: req.body.title,
+            text: req.body.text
+            //date: date
+        }, { where: { id: req.params.id } })
+
+        console.log("ATUALIZADO COM SUCESSO")
         res.redirect(`/day?date=${date}`)
-    }).catch(function(erro){
+    } catch (erro) {
         console.log("ERRO AO ATUALIZAR REGISTRO: " + erro)
         res.redirect(`/day?date=${date}`)
-    })
+    }
 })
 
 // DELETAR REGISTROS DO BANCO DE DADOS
-app.delete("/delete/:id/:date", function(req, res){
-    const date = req.params.date;
+app.delete("/delete/:id/:date", async function(req, res){
+    const date = req.params.date
 
-    console.log("data captura:",date);
+    console.log("data captura:", date)
 
-    Diary.destroy({where: {"id": req.params.id}}).then(function(){
+    try {
+        await Diary.destroy({ where: { id: req.params.id } })
         console.log("DELETADO COM SUCESSO!")
         res.redirect(`/day?date=${date}`)
-    }).catch(function(erro){
-        console.log("ERRO AO DELETAR"+erro)
+    } catch (erro) {
+        console.log("ERRO AO DELETAR " + erro)
         res.redirect(`/day?date=${date}`)
-    })
+    }
 })
 
-
-app.listen(PORT, () => console.log(`Servidor rodando na url http://localhost:${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Servidor rodando na url http://localhost:${process.env.PORT}`));

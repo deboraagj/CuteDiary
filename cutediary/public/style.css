@@ -1,182 +1,248 @@
-/* body {
-    font-family: "Arial", sans-serif;
+@font-face {
+    font-family: "New Sun PlayFul";
+    src: url("./fonts/New Sun Regular.woff2") format('woff2');
+    font-weight: normal; 
+    font-style: normal;
+}
+
+body {
+    font-family: "New Sun PlayFul", sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
-    background-color: #0a1930;
+    background-color: #c1bedf;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+   /* ==============================
+      ESTILIZAÇÃO DA PÁGINA INICIAL
+   ============================== */
+
+.headerHome{
+    display: flex;
+    align-items:center;
+    width: 100%;
+    gap:60%;
+}
+
+.headerHome h1{
+    color: #6f41a5;
+    margin-left: 50px;
+}
+
+.btn-menu{
+    background-color: #c1bedf;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-menu:hover{
+    transform: scale(1.05);
+}
+
+.btn-menu img {
+    width: 30px;
+    height: 30px;
+}
+
+.containerAll{
+    width: 95%;
+    background-color: #fccede;
+    display: flex;
+    gap: 30px;
+    border-radius: 30px;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* ESTILIZAÇÃO DO CALENDÁRIO */
 
 #calendar {
-    width: 320px;
-    padding: 20px;
-    border: 1px solid #f46663;
-    background-color: #122541;
-    border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 70%;
+    margin-right: 23px;
+    box-shadow: 6px 6px 0px #333;
+    border-radius: 15px;
 }
 
-.header {
+/* HEADER DO CALENDÁRIO */
+
+.headerCalendar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #122541;
-    color: #f46663;
-    font-weight: 900;
-    border-bottom: 1px solid #3a4669;
-    border-radius: 5px 5px 0 0;
-    /* text-transform: capitalize; 
-}*/
+    padding: 5px;
+    background-color: #f37da3;
+    color:  white;
+    font-size: 30px;
+    border-radius: 10px 10PX 0 0; 
+    border: 3px solid #333;
+    border-bottom: none ;
+}
 
-.header button {
+.headerCalendar button {
     background: none;
-    color: #ccc;
-    font-size: 18px;
-    font-weight: 900;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
     cursor: pointer;
-    padding: 0.5rem 0.5rem;
-    border-radius: 10px;
+    padding: 5px;
     border: none;
-    transition: background-color 0.3s, color 0.3s;
+    transition: transform 0.3s;
 }
 
-.header button:hover {
-    background-color: #444;
-    color: #fff;
+.headerCalendar button:hover {
+    transform: scale(1.5);
 }
 
-.weekdays,
+/* DIAS DA SEMANA */
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 0;
+      padding-bottom: 0;
+    text-align: center;
+    color: white;
+    background-color:  #f37da3;
+    border-left: 3px solid #333;
+    border-right: 3px solid #333;
+}
+
+.weekdays div {
+    font-size: 20px;
+    border: 3px solid #333;
+    border-left:none;
+    padding: 10px;
+}
+
+#divSaturday{
+    border-right:none;
+}
+
+/* DIAS */
 
 #days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    padding: 10px;
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     text-align: center;
-    color: #ccc;
-}
-
-.weekdays div {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #aaa;
+    color: black;;
+    border-radius: 0 0 10px 10px;
+    background-color: #FFE7B6;
+    border: 3px solid #333;
+    border-top: none;
 }
 
 #days div {
-    padding: 10px;
-    margin-bottom: 5px;
+    background-color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px 10px;
     cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    border-radius: 10px;
+    border: 3px solid #333;
+    transition: 0.3s;
 }
 
 #days div:hover {
-    background-color: #444;
-    color: #fff;
+    color: #f37da3;
     transform: scale(1.1);
 }
 
 #days div.active {
-    background-color: #f46663;
+    background-color: #f37da3;
     color: #fff;
-} */
-
-
-/* ESTILIZAÇÃO DO CHAT*/
-
-/* ====== ESTILO GERAL ====== */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    background: #FBD2E0; /* Rosa pastel claro */
-    display: flex;
-    justify-content: center;
-    padding-top: 40px;
 }
 
-/* ====== CONTAINER DO CALENDÁRIO ====== */
-#calendar {
-    background: #FFE6F0; /* Rosa ainda mais suave */
-    width: 360px;
-    border-radius: 20px;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
-    padding: 20px;
+#days div:empty {
+    visibility: hidden;
 }
 
-/* ====== CABEÇALHO ====== */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
+/* ESTILIZAÇÃO DA JANELA */
 
-.header button {
-    background: #FF8CCF; 
-    color: white;
-    border: none;
-    font-size: 18px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.header button:hover {
-    background: #ff74c4;
-}
-
-#month-year {
-    font-size: 22px;
-    font-weight: 700;
-    color: #7A3DA3; /* Roxo amigável */
-}
-
-/* ====== DIAS DA SEMANA ====== */
-.weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #9D4EDD; /* Roxo pastel */
-}
-
-/* ====== DIAS ====== */
-#days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-}
-
-#days div {
-    background: white;
-    padding: 12px;
+/* Container da janela */
+.window {
+    width: 30%;
+    margin-top: 23,5px;
+    margin-bottom: 23,5px;
+    margin-left: 23px;
     border-radius: 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.2s;
-    font-weight: 500;
-    color: #5A2E98;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #ffffff;
+    position: relative;
+    border: 3px solid #333;
+    box-shadow: 6px 6px 0px #333;
 }
 
-#days div:hover {
-    background: #FFCAF0;
-    transform: translateY(-3px);
+/* Barra superior */
+.window-top {
+    width: 100%;
+    height: 40px;
+    background: #f37da3;
+    border-bottom: 3px solid #333;
+    border-radius: 10px 10px 0 0;
+    position: relative;
 }
 
-/* Dia atual */
-#days .today {
-    background: #FF8CCF;
-    color: white;
-    font-weight: 700;
+/* Três botões da barra */
+.buttons {
+    position: absolute;
+    right: 15px;
+    top: 10px;
 }
 
-/* Dias de outros meses */
-#days .other-month {
-    opacity: 0.4;
+.buttons span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #6f41a5;
+    border-radius: 50%;
+    margin-left: 6px;
+    border: 3px solid #333;
 }
+
+/* Parte interna branca */
+.window-body {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+}
+
+/* Estrelinhas */
+.stars {
+    width: 18px;
+    height: 18px;
+    background: #ffe7b6;
+    border: 3px solid #333;
+    position: absolute;
+    transform: rotate(45deg);
+    border-radius: 3px;
+}
+
+/* Estrelinhas nas posições iguais à imagem */
+.star1 {
+    top: 8px;
+    left: -12px;
+}
+
+.star2 {
+    bottom: 10px;
+    right: 9px;
+}
+

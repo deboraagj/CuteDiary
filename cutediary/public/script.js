@@ -75,16 +75,3 @@ nextMonth.addEventListener("click", () => {
 // PARA RODAR FUNÇÃO
 renderCalendar(currentDay)
 
-
-if (window.history && window.history.replaceState) {
-        
-        // 1. O PULO DO GATO:
-        // Substituímos a entrada ATUAL do histórico pela URL da Home (/).
-        // Isso faz com que a seta "Voltar" do navegador aponte diretamente para a Home.
-        window.history.replaceState(null, null, "/");
-        
-        // 2. Adicionamos a URL ATUAL (/day?date=...) de volta à pilha, 
-        // logo após a Home. Isso permite que a página atual seja referenciada se for necessário.
-        window.history.pushState(null, null, window.location.href);
-
-    }

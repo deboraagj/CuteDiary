@@ -6,7 +6,7 @@
     <h3>{{this.title}}</h3>
     <p>{{this.text}}</p>
     {{!-- <a href="/delete/{{id}}"><button class="">Deletar</button></a> --}}
-    <a href="/edit/{{this.id}}"> Editar </a>
+    <a href="/edit/{{this.id}}/{{../dateSave}}"> Editar </a>
 
    <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST" style="display: inline;">
     

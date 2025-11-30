@@ -1,20 +1,13 @@
-<h2>Nova Anotação para {{dateShow}}</h2>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janela Fofa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<form action="/add" method="POST">
-    
-    {{! CAMPO OCULTO: ENVIANDO A DATA SELECIONADA PARA O SERVIDOR }}
-    <input type="hidden" name="date" value="{{dateSave}}">
-    
-    {{#if error}}
-        <p style="color: red;">{{error}}</p>
-    {{/if}}
-
-    <label for="title">Título:</label>
-    <input type="text" id="title" name="title" value="{{title}}" required><br><br>
-
-    <label for="text">Anotação:</label>
-    <textarea id="text" name="text" required>{{text}}</textarea><br><br>
-    
-    <button type="submit">Salvar Anotação</button>
-     <a href="/deletar/{{id}}"><button class="btn btn-danger">Deletar</button></a>
-</form>
+<img src="./cutediary/public/icons/bar.png" alt="">
+</body>
+</html>

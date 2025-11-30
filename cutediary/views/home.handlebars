@@ -1,7 +1,27 @@
 {{!-- PÁGINA PRINCIPAL --}}
-    
+
+<header class="headerHome">
+    <h1>MY DEAR DIARY, BUT NO EVERY DAY</h1>
+    <button class="btn-menu"><img src="/icons/bar.svg" alt=""></button>
+</header>
+
+<div class="containerAll">
+
+    <div class="window">
+        <div class="window-top">
+            <div class="stars star1"></div>
+            <div class="buttons">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <div class="stars star2"></div>
+        </div>
+    </div>
+
     <div id="calendar">
-        <div class="header">
+        <div class="headerCalendar">
             <button id="prev-month">&lt;</button>
             <div id="month-year"></div>
             <button id="next-month">&gt;</button>
@@ -14,8 +34,9 @@
             <div>Qua</div>
             <div>Qui</div>
             <div>Sex</div>
-            <div>Sáb</div>
+            <div id="divSaturday">Sáb</div>
         </div>
         <div id="days"></div>
     </div>
 
+</div>

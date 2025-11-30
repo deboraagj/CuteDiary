@@ -1,12 +1,14 @@
 // CONFIGURAÇÃO COM O SERVIDOR MYSQL
 
 const Sequelize = require("sequelize")
+require('dotenv').config()
+
 const sequelize = new Sequelize(
-    "cutediary",
-    "admin",
-    "admin",
+    process.env.DB_NAME, 
+    process.env.DB_USER,
+    process.env.DB_PASS,
     {
-        host: "localhost",
+        host: process.env.DB_HOST,
         dialect: "mysql",
         timezone: "-03:00"
     }
