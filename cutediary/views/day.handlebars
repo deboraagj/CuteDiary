@@ -6,18 +6,26 @@
     </a>
 </header>
 
-<div class="page-container">
+<div class="containerDiary">
     {{#if diaries}}
     {{#each diaries}}
     <div class="diary-box">
-        <h3>{{this.title}}</h3>
-        {{!-- <p>{{this.text}}</p> --}}
-
-        <a href="/edit/{{this.id}}/{{../dateSave}}" class="btn-cute">Editar</a>
-
-        <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST" style="display:inline;">
-            <button class="btn-cute btn-delete">Deletar</button>
-        </form>
+        <div class="titleDiary">
+            <h3>{{this.title}}</h3>
+            <div class="buttonsTitleDiary">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="textDiary">
+            <p>{{this.text}}</p>
+        </div>
+        <div class="btnDiary">
+            <a href="/open/{{this.id}}/{{../dateSave}}" class="btn-cute btn-open">ABRIR</a>
+            <a href="/edit/{{this.id}}/{{../dateSave}}" class="btn-cute btn-edit">Editar</a>
+            <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST" style="display:inline;">
+                <button class="btn-cute btn-delete">Deletar</button>
+            </form>
+        </div>
     </div>
     {{/each}}
     {{else}}
@@ -25,5 +33,4 @@
         OPS, NENHUMA ANOTAÇÃO ENCONTRDA PARA ESSA DATA
     </p>
     {{/if}}
-
 </div>

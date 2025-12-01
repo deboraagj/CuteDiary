@@ -8,10 +8,14 @@
     --pink-main: #f37da3;
     --yellow-star: #eeba52;
     --white: #ffffff;
+    --green: rgb(74, 226, 74);
+    --red: #ff6a6a;
 
     --radius-sm: 10px;
     --radius-md: 15px;
     --radius-lg: 30px;
+    --radius-top: 10px 10px 0 0;
+    --radius-bottom: 0 0 10px 10px;
 
     --shadow-strong: 6px 6px 0px var(--purple-dark);
     --shadow-soft: 3px 3px 0px var(--purple-dark);
@@ -502,7 +506,7 @@ body {
 
 
 /* ============================
-   TÍTULOS PRINCIPAIS
+   day.handlebars
 ============================ */
 
 .headerDay {
@@ -510,7 +514,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .page-title {
@@ -525,38 +529,86 @@ body {
    CAIXAS DAS ANOTAÇÕES
 ============================ */
 
-.page-container {
+.containerDiary {
     width: 95%;
-    background-color: blue;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 50px;
 }
 
 
 .diary-box {
-    width: 20%;
-    background: var(--white);
-    border: 3px solid var(--purple-dark);
-    padding: 20px;
-    border-radius: var(--radius-md);
-    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    height: 40vh;
     box-shadow: var(--shadow-strong);
-    position: relative;
+    border-radius: var(--radius-sm);
 }
 
-.diary-box h3 {
+.titleDiary{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f37da3;
+    border: 3px solid var(--purple-dark);
+    border-bottom: 3px solid var(--purple-dark);
+    border-radius: var(--radius-top);
+
+}
+
+.titleDiary h3 {
+    margin: 0 5px 0 5px;
+    /* background-color: aqua; */
     font-size: 2rem;
-    margin: 0 0 10px;
     color: var(--purple-dark);
     text-shadow: 1px 1px 0 var(--white);
 }
 
-.diary-box p {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+.buttonsTitleDiary{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 5px;
+}
+
+.buttonsTitleDiary span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: var(--purple-dark);
+    border-radius: 50%;
+
+    border: 3px solid var(--white);
+}
+
+
+.textDiary {
+    height: 25vh;
+    background-color: var(--white);
+    border: 3px solid var(--purple-dark);
+    border-top: none;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.textDiary p {
     color: var(--purple-dark);
+    font-size: 1.3rem;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    /* TRUNCAMENTO */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ============================
@@ -564,8 +616,7 @@ body {
 ============================ */
 
 .btn-cute {
-    display: inline-block;
-    padding: 10px 18px;
+    padding: 1px 10px;
     background: var(--pink-main);
     border: 3px solid var(--purple-dark);
     color: var(--purple-dark);
@@ -580,8 +631,35 @@ body {
     transform: scale(1.05);
 }
 
+.btnDiary {
+    background-color: #f37da3;
+    border: 3px solid var(--purple-dark);
+    border-top: none;
+    border-radius: var(--radius-bottom);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    padding: 5px;
+}
+
+.btn-open{
+    background-color: var(--green);
+}
+
+.btn-edit{
+    background-color: var(--yellow-star);
+}
+
 .btn-delete {
-    background: #ff6a6a;
+    font-family: "BebasNeue", sans-serif;
+    background: var(--red);
+    cursor: pointer;
+}
+
+.btn-delete:hover{
+    transform: scale(1.05);
 }
 
 /* ============================
@@ -646,7 +724,7 @@ body {
    MODO RESPONSIVO
 ============================ */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .page-title {
         font-size: 2.2rem;
     }
@@ -657,5 +735,176 @@ body {
 
     .form-box button {
         font-size: 1.5rem;
+    }
+} */
+
+/* ============================
+   RESPONSIVIDADE
+============================ */
+
+/* --- CELULARES (até 600px) --- */
+@media (max-width: 600px) {
+
+    .headerDay {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .containerDiary {
+        flex-direction: column;
+        width: 100%;
+        gap: 25px;
+    }
+
+    .diary-box {
+        width: 90%;
+        height: 40vh;
+    }
+
+    .titleDiary h3 {
+        font-size: 1.6rem;
+    }
+
+    .textDiary {
+        height: auto;
+        padding: 10px;
+    }
+
+    .textDiary p {
+        font-size: 1.2rem;
+        -webkit-line-clamp: 5;
+    }
+
+    .btnDiary {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .btn-cute {
+        font-size: 1.2rem;
+        padding: 5px 10px;
+    }
+}
+
+/* --- TABLETS (601px — 1024px) --- */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .page-title {
+        font-size: 2.6rem;
+    }
+
+    .containerDiary {
+        gap: 35px;
+    }
+
+    .diary-box {
+        width: 70%;
+        height: 40vh;
+    }
+
+    .titleDiary h3 {
+        font-size: 1.8rem;
+    }
+
+    .textDiary p {
+        -webkit-line-clamp: 4;
+        font-size: 1.3rem;
+    }
+
+    .btnDiary {
+        justify-content: space-between;
+        padding: 10px;
+    }
+}
+
+/* --- MONITORES GRANDES (22 polegadas+ / >1600px) --- */
+@media (min-width: 1600px) {
+
+    .page-title {
+        font-size: 3.5rem;
+    }
+
+    .containerDiary {
+        width: 95%;
+        gap: 30px;
+    }
+
+    .diary-box {
+        width: 40%;
+        height: 40vh;
+    }
+
+    .titleDiary h3 {
+        font-size: 2.4rem;
+    }
+
+    .textDiary {
+        height: 28vh;
+    }
+
+    .textDiary p {
+        font-size: 1.5rem;
+    }
+
+    .btn-cute {
+        font-size: 1.5rem;
+    }
+
+    .btnDiary {
+        padding: 10px;
+    }
+}
+
+/* ===== open.handlebars ===== */
+
+.headerOpen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.open-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.open-box {
+    width: 70%;
+    background: #fff;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-strong);
+    padding: 30px;
+}
+
+.open-title {
+    font-size: 2.2rem;
+    color: var(--purple-dark);
+    margin-bottom: 15px;
+}
+
+.open-text {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-bottom: 25px;
+}
+
+.btn-edit-open {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .open-box {
+        width: 95%;
     }
 }

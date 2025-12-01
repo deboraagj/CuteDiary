@@ -1,6 +1,6 @@
 // === COMMITAR === //
 
-git add .; git commit -m "Incrementação da lógica de geração do calendário"; git push origin main
+git add .; git commit -m ""; git push origin main
 
 // === ATUALIZAR SERVER AUTOMATICAMENTE COM QUALQUER ALTERAÇÃO HTML/CSS/JAVASCRIPT/NODE.JS === //
 
