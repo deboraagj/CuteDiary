@@ -51,7 +51,11 @@ app.get("/day", async (req, res) => {
     const dateShow = `${day}/${month}/${year}`
 
     try {
-        const diaries = await Diary.findAll()
+        const diaries = await Diary.findAll({
+            where: { date: dateSelected },
+            order: [["id", "DESC"]]
+        })
+
         res.render('day', {
             dateShow: dateShow,
             dateSave: dateSelected,

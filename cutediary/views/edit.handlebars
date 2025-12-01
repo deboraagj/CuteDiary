@@ -1,13 +1,11 @@
-<h1>Editar Anotação do dia {{dateShow}}</h1>
+{{!-- <h1>Editar Anotação do dia {{dateShow}}</h1>
 
 <form action="/edit/{{diaries.id}}/{{diaries.date}}?_method=PATCH" method="POST">
     
-    {{! ⭐️ O parâmetro ?_method=PATCH força o Express a usar app.patch ⭐️ }}
     
     <input type="hidden" name="date" value="{{dateSave}}">
     
-    {{! Campo oculto para garantir o redirecionamento após a edição }}
-    {{!-- <input type="hidden" name="date" value="{{diary.date}}">  --}}
+   
 
     <label for="title">Título:</label>
     <input type="text" id="title" name="title" value="{{diaries.title}}" required><br><br>
@@ -18,4 +16,26 @@
     <button type="submit">Salvar Alterações</button>
 </form>
 
-<a href="/day?date={{diaries.date}}">Cancelar</a>
+<a href="/day?date={{diaries.date}}">Cancelar</a> --}}
+
+<div class="page-container">
+
+    <h1 class="page-title">Editar Anotação do dia {{dateShow}}</h1>
+
+    <form action="/edit/{{diaries.id}}/{{diaries.date}}?_method=PATCH"
+          method="POST" class="form-box">
+
+        <input type="hidden" name="date" value="{{dateSave}}">
+
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" value="{{diaries.title}}" required>
+
+        <label for="text">Texto:</label>
+        <textarea id="text" name="text" required>{{diaries.text}}</textarea>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <a href="/day?date={{diaries.date}}" class="link-back">Cancelar</a>
+
+</div>

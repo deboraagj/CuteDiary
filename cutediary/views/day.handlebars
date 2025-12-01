@@ -1,28 +1,29 @@
-<h1> VISÃO GERAL DO DIA {{dateShow}}</h1>
+<header class="headerDay">
+    <h1 class="page-title">ANOTAÇÕES DO DIA {{dateShow}}</h1>
 
-{{#if diaries}}
-{{#each diaries}}
-<div>
-    <h3>{{this.title}}</h3>
-    <p>{{this.text}}</p>
-    {{!-- <a href="/delete/{{id}}"><button class="">Deletar</button></a> --}}
-    <a href="/edit/{{this.id}}/{{../dateSave}}"> Editar </a>
+    <a href="/create?date={{dateSave}}" class="btn-cute" style="margin-top:15px;">
+        Criar Nova Anotação
+    </a>
+</header>
 
-   <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST" style="display: inline;">
-    
-    {{! ⭐️ O USO DE ../ GARANTE O ACESSO À VARIÁVEL DE FORA DO LOOP ⭐️ }}
-    
-    <button>Deletar</button>
-</form>
-</form>
-</form>
-    {{! ⭐️ Botão Deletar: Usa o atributo data-id para o JS identificar qual anotação deletar }}
-    {{!-- <button class="delete-btn" data-id="{{this.id}}">Deletar</button> --}}
+<div class="page-container">
+    {{#if diaries}}
+    {{#each diaries}}
+    <div class="diary-box">
+        <h3>{{this.title}}</h3>
+        {{!-- <p>{{this.text}}</p> --}}
+
+        <a href="/edit/{{this.id}}/{{../dateSave}}" class="btn-cute">Editar</a>
+
+        <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST" style="display:inline;">
+            <button class="btn-cute btn-delete">Deletar</button>
+        </form>
+    </div>
+    {{/each}}
+    {{else}}
+    <p style="text-align:center; font-size:1.6rem; color:var(--purple-dark);">
+        OPS, NENHUMA ANOTAÇÃO ENCONTRDA PARA ESSA DATA
+    </p>
+    {{/if}}
+
 </div>
-{{/each}}
-{{else}}
-<p>Nenhuma anotação encontrada para esta data. Crie uma acima!</p>
-{{/if}}
-
-<a href="/create?date={{dateSave}}">Criar anotação</a>
-

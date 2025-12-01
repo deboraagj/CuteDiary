@@ -28,7 +28,7 @@
 @font-face {
     font-family: "BebasNeue";
     src: url("../fonts/BebasNeue-Regular.woff2") format('woff2');
-    font-weight: normal; 
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -54,7 +54,7 @@ body {
 
 .headerHome {
     display: flex;
-    align-items:center;
+    align-items: center;
     width: 95%;
     justify-content: space-between;
     padding: 15px 2.5%;
@@ -120,7 +120,7 @@ body {
     background-color: var(--pink-main);
     color: var(--purple-dark);
     font-weight: bold;
-    font-size: 45px;
+    font-size: 38px;
     border-radius: var(--radius-sm) var(--radius-sm) 0 0;
     border: 3px solid var(--purple-dark);
 }
@@ -164,7 +164,7 @@ body {
 }
 
 #divSaturday {
-    border-right:none;
+    border-right: none;
 }
 
 /* DIAS DO CALENDÁRIO */
@@ -343,7 +343,7 @@ body {
 
 #motivation-text {
     text-align: center;
-    color:#6f41a5;
+    color: #6f41a5;
     font-size: 2rem;
     padding: 15px;
 }
@@ -444,8 +444,9 @@ body {
         font-size: 3.2em;
     }
 
-    .weekdays div, #days div {
-        font-size: 1.6rem; 
+    .weekdays div,
+    #days div {
+        font-size: 1.6rem;
     }
 
     .emojis button img {
@@ -468,7 +469,7 @@ body {
         font-size: 3.5em;
     }
 
-    .containerAll{
+    .containerAll {
         width: 95%;
     }
 
@@ -480,7 +481,8 @@ body {
         width: 33%;
     }
 
-    .weekdays div, #days div {
+    .weekdays div,
+    #days div {
         font-size: 1.8rem;
         padding: 12px;
     }
@@ -491,5 +493,169 @@ body {
 
     .emojis button img {
         width: 140px;
+    }
+}
+
+/* ============================
+     ESTILIZAÇÃO DAS VIEWS 
+============================ */
+
+
+/* ============================
+   TÍTULOS PRINCIPAIS
+============================ */
+
+.headerDay {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aqua;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--purple-dark);
+    text-shadow: 2px 2px 0 var(--white);
+    margin-bottom: 25px;
+}
+
+/* ============================
+   CAIXAS DAS ANOTAÇÕES
+============================ */
+
+.page-container {
+    width: 95%;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+
+.diary-box {
+    width: 20%;
+    background: var(--white);
+    border: 3px solid var(--purple-dark);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-strong);
+    position: relative;
+}
+
+.diary-box h3 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+    color: var(--purple-dark);
+    text-shadow: 1px 1px 0 var(--white);
+}
+
+.diary-box p {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--purple-dark);
+}
+
+/* ============================
+   BOTÕES PADRÃO
+============================ */
+
+.btn-cute {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--pink-main);
+    border: 3px solid var(--purple-dark);
+    color: var(--purple-dark);
+    text-decoration: none;
+    font-size: 1.4rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft);
+    transition: 0.2s;
+}
+
+.btn-cute:hover {
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    background: #ff6a6a;
+}
+
+/* ============================
+   FORMULÁRIOS
+============================ */
+
+.form-box {
+    background: var(--white);
+    padding: 25px;
+    border: 3px solid var(--purple-dark);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-strong);
+}
+
+.form-box label {
+    font-size: 1.8rem;
+    color: var(--purple-dark);
+}
+
+.form-box input,
+.form-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid var(--purple-dark);
+    border-radius: var(--radius-sm);
+    font-size: 1.3rem;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+}
+
+.form-box textarea {
+    height: 130px;
+    resize: none;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.8rem;
+    background: var(--pink-main);
+    border: 3px solid var(--purple-dark);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: var(--shadow-soft);
+    font-family: "BebasNeue";
+}
+
+.form-box button:hover {
+    transform: scale(1.05);
+}
+
+.link-back {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    color: var(--purple-dark);
+}
+
+/* ============================
+   MODO RESPONSIVO
+============================ */
+
+@media (max-width: 600px) {
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .form-box label {
+        font-size: 1.5rem;
+    }
+
+    .form-box button {
+        font-size: 1.5rem;
     }
 }
