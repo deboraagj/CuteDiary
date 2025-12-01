@@ -1,0 +1,495 @@
+/* ===========================================
+   VARIÁVEIS GERAIS (CORES / TAMANHOS / FONTES)
+=========================================== */
+
+:root {
+    --bg-main: #c1bedf;
+    --purple-dark: #6f41a5;
+    --pink-main: #f37da3;
+    --yellow-star: #eeba52;
+    --white: #ffffff;
+
+    --radius-sm: 10px;
+    --radius-md: 15px;
+    --radius-lg: 30px;
+
+    --shadow-strong: 6px 6px 0px var(--purple-dark);
+    --shadow-soft: 3px 3px 0px var(--purple-dark);
+
+    --font-large: 2.5em;
+    --font-medium: 1.5rem;
+    --font-small: 1.2rem;
+}
+
+/* ===============================
+       FONTES
+================================ */
+
+@font-face {
+    font-family: "BebasNeue";
+    src: url("../fonts/BebasNeue-Regular.woff2") format('woff2');
+    font-weight: normal; 
+    font-style: normal;
+}
+
+/* ===============================
+       GERAL
+================================ */
+
+body {
+    font-family: "BebasNeue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-main);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* ===============================
+       HEADER
+================================ */
+
+.headerHome {
+    display: flex;
+    align-items:center;
+    width: 95%;
+    justify-content: space-between;
+    padding: 15px 2.5%;
+}
+
+.headerHome h1 {
+    color: var(--purple-dark);
+    font-size: var(--font-large);
+    margin: 0;
+}
+
+.btn-menu {
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-menu:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.btn-menu img {
+    width: 30px;
+    height: 30px;
+}
+
+/* ===============================
+      CONTAINER PRINCIPAL
+================================ */
+
+.containerAll {
+    width: 95%;
+    display: flex;
+    gap: 30px;
+    border-radius: var(--radius-lg);
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* ===============================
+      CALENDÁRIO
+================================ */
+
+#calendar {
+    width: 62%;
+    box-shadow: var(--shadow-strong);
+    border-radius: var(--radius-md);
+}
+
+/* HEADER DO CALENDÁRIO */
+
+.headerCalendar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--pink-main);
+    color: var(--purple-dark);
+    font-weight: bold;
+    font-size: 45px;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    border: 3px solid var(--purple-dark);
+}
+
+.headerCalendar button {
+    background: none;
+    color: var(--purple-dark);
+    font-size: 35px;
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    transition: transform 0.3s;
+}
+
+.headerCalendar button:hover {
+    transform: scale(1.5);
+}
+
+#month-year {
+    color: var(--purple-dark);
+    text-shadow: 1px 1px 0 var(--white);
+}
+
+/* DIAS DA SEMANA */
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: var(--purple-dark);
+    text-shadow: 1px 1px 0 var(--white);
+    background-color: var(--white);
+    border-left: 3px solid var(--purple-dark);
+    border-right: 3px solid var(--purple-dark);
+    padding: 5px;
+}
+
+.weekdays div {
+    font-size: var(--font-medium);
+}
+
+#divSaturday {
+    border-right:none;
+}
+
+/* DIAS DO CALENDÁRIO */
+
+#days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 5px;
+    text-align: center;
+    color: var(--purple-dark);
+    background-color: var(--white);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    border: 3px solid var(--purple-dark);
+    border-top: none;
+}
+
+#days div {
+    background-color: var(--yellow-star);
+    font-size: 1.35rem;
+    font-weight: bold;
+    padding: 8px 5px;
+    margin: 5px 10px;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    border: 3px solid var(--purple-dark);
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s;
+}
+
+#days div:hover {
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+#days div.active {
+    background-color: var(--pink-main);
+    color: var(--white);
+}
+
+#days div:empty {
+    visibility: hidden;
+}
+
+/* ===============================
+      EMOÇÕES
+================================ */
+
+.emotions {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.emotions h2 {
+    text-align: center;
+    width: 100%;
+    background-color: var(--pink-main);
+    color: var(--purple-dark);
+    margin: 0;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    border: 3px solid var(--purple-dark);
+    border-bottom: none;
+    box-shadow: var(--shadow-soft);
+    color: var(--purple-dark);
+    text-shadow: 1px 1px 0 var(--white);
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.emojis {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--white);
+    gap: 25px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    border: 3px solid var(--purple-dark);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 38px;
+}
+
+.emojiEmotion {
+    cursor: pointer;
+    transition: 0.3s;
+    background: none;
+    border: none;
+}
+
+.emojiEmotion:hover {
+    transform: scale(1.05);
+}
+
+.emojiEmotion h3 {
+    font-family: "BebasNeue", sans-serif;
+    color: var(--purple-dark);
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.emojis button img {
+    width: 100px;
+}
+
+/* ===============================
+       JANELA (STYLE CUTE)
+================================ */
+
+.window {
+    width: 100%;
+    border-radius: var(--radius-md);
+    background: var(--white);
+    position: relative;
+    border: 3px solid var(--purple-dark);
+    box-shadow: var(--shadow-strong);
+}
+
+.window-top {
+    width: 100%;
+    height: 40px;
+    background: var(--pink-main);
+    border-bottom: 3px solid var(--purple-dark);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    position: relative;
+}
+
+.buttons {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.buttons span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: var(--purple-dark);
+    border-radius: 50%;
+    margin-left: 6px;
+    border: 3px solid var(--white);
+}
+
+.window-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    position: relative;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+/* Estrelas decorativas */
+
+.stars {
+    width: 18px;
+    height: 18px;
+    background: var(--yellow-star);
+    border: 3px solid var(--purple-dark);
+    position: absolute;
+    transform: rotate(45deg);
+    border-radius: 3px;
+}
+
+.star1 {
+    top: 8px;
+    left: -12px;
+}
+
+.star2 {
+    bottom: 10px;
+    right: 9px;
+}
+
+#motivation-text {
+    text-align: center;
+    color:#6f41a5;
+    font-size: 2rem;
+    padding: 15px;
+}
+
+/* ===========================================
+           RESPONSIVIDADE
+=========================================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .containerAll {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+    }
+
+    #calendar {
+        width: 90%;
+    }
+
+    .emotions {
+        width: 90%;
+    }
+}
+
+/* CELULARES GRANDES */
+@media (max-width: 768px) {
+    .headerHome h1 {
+        font-size: 1.8em;
+        text-align: center;
+    }
+
+    .emojis button img {
+        width: 70px;
+    }
+
+    #days div {
+        margin: 3px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+@media (max-width: 480px) {
+
+    .headerHome {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .headerHome h1 {
+        font-size: 1.6em;
+    }
+
+    .containerAll {
+        width: 100%;
+    }
+
+    .emojiEmotion h3 {
+        font-size: 1rem;
+    }
+
+    .emojis button img {
+        width: 55px;
+    }
+
+    #calendar {
+        width: 100%;
+    }
+}
+
+/* Monitores grandes – acima de 1600px */
+@media (min-width: 1600px) {
+
+    body {
+        max-width: 1500px;
+        margin: auto;
+    }
+
+    .headerHome {
+        width: 85%;
+    }
+
+    .containerAll {
+        width: 85%;
+        gap: 40px;
+        height: 75vh;
+    }
+
+    #calendar {
+        width: 60%;
+    }
+
+    .emotions {
+        width: 35%;
+    }
+
+    .headerHome h1 {
+        font-size: 3.2em;
+    }
+
+    .weekdays div, #days div {
+        font-size: 1.6rem; 
+    }
+
+    .emojis button img {
+        width: 120px;
+    }
+
+    .emojiEmotion h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Monitores extragrandes – acima de 1900px */
+@media (min-width: 1900px) {
+
+    body {
+        max-width: 1900px;
+    }
+
+    .headerHome h1 {
+        font-size: 3.5em;
+    }
+
+    .containerAll{
+        width: 95%;
+    }
+
+    #calendar {
+        width: 62%;
+    }
+
+    .emotions {
+        width: 33%;
+    }
+
+    .weekdays div, #days div {
+        font-size: 1.8rem;
+        padding: 12px;
+    }
+
+    .emojis {
+        margin-bottom: 111px;
+    }
+
+    .emojis button img {
+        width: 140px;
+    }
+}

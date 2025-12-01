@@ -1,11 +1,31 @@
 {{!-- PÁGINA PRINCIPAL --}}
 
 <header class="headerHome">
-    <h1>MY DEAR DIARY, BUT NO EVERY DAY</h1>
-    <button class="btn-menu"><img src="/icons/bar.svg" alt=""></button>
+    <h1>NEM TODOS OS DIAS, MAS MEU QUERIDO DIÁRIO</h1>
+    <button class="btn-menu"><img src="/icons/bar.png" alt=""></button>
 </header>
 
 <div class="containerAll">
+
+<div class="emotions">
+    {{!-- EMOJIS --}}
+<h2>COMO VOCÊ ESTÁ HOJE?</h2>
+    <div class="emojis">
+        <button class="emojiEmotion">
+            <h3>FELIZ</h3>
+            <img src="/images/happy.png" alt="">
+        </button>
+         <button class="emojiEmotion">
+            <h3>ENTEDIADO(A)</h3>
+            <img src="/images/boredom.png" alt="">
+        </button>
+         <button class="emojiEmotion">
+             <h3>TRISTE</h3>
+            <img src="/images/sad.png" alt="">
+        </button>
+    </div>
+
+    {{!-- JANELA --}}
 
     <div class="window">
         <div class="window-top">
@@ -16,9 +36,13 @@
         </div>
 
         <div class="window-body">
+            <p id="motivation-text"></p>
             <div class="stars star2"></div>
         </div>
     </div>
+</div>
+
+    {{!-- CALENDÁRIO --}}
 
     <div id="calendar">
         <div class="headerCalendar">

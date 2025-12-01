@@ -1,3 +1,7 @@
+// =======================
+// GERANDO O CALENDÁRIO
+// =======================
+
 // CONECTANDO ELEMENTOS DO HTML
 const calendar = document.getElementById("calendar")
 const monthYear = document.getElementById("month-year")
@@ -75,3 +79,51 @@ nextMonth.addEventListener("click", () => {
 // PARA RODAR FUNÇÃO
 renderCalendar(currentDay)
 
+// ============================================
+// CONFIGURAÇÃO DA API DAS FRASES MOTIVACIONAIS
+// ============================================
+
+// CONECTANDO ELEMENTOS DO HTML
+const emotionButtons = document.querySelectorAll(".emojiEmotion")
+const motivationTextElement = document.getElementById("motivation-text")
+
+function getRandomPhrase(emotion) {
+    const phrases = motivationalPhrases[emotion];
+    if (phrases && phrases.length > 0) {
+        const randomIndex = Math.floor(Math.random() * phrases.length);
+        return phrases[randomIndex];
+    }
+    return "Que bom que você está aqui. Conte com a gente.";
+}
+
+async function loadPhrases() {
+    try {
+        const response = await fetch("/json/phrasesMotivation.json"); 
+       
+        motivationalPhrases = await response.json();
+        console.log("Frases motivacionais carregadas com sucesso!");
+
+        setupEventListeners();
+
+    } catch (error) {
+        console.error("Erro ao carregar frases motivacionais:", error);
+        motivationTextElement.textContent = "Erro ao carregar dados. Mas lembre-se: você é incrível!";
+    }
+}
+
+function setupEventListeners() {
+    emotionButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const clickedButton = event.currentTarget;
+            const emotionTitleElement = clickedButton.querySelector("h3");
+            const emotionName = emotionTitleElement.textContent.trim().toUpperCase(); // PEGA A EMOÇÃO SELECIONADA
+
+            let phrase = getRandomPhrase(emotionName); // RECEBENDO FRASE ALEATÓRIA
+    
+            motivationTextElement.textContent = phrase;  // ENVIANDO FRASE PARA O HTML
+        });
+    });
+}
+
+// PARA RODAR FUNÇÃO
+loadPhrases();
