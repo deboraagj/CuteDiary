@@ -45,7 +45,7 @@ router.get("/open/:id/:date", async (req, res) => {
         const diary = await Diary.findOne({ where: { id: id } });
 
         res.render("open", {
-            diary: diary.dataValues,
+            diaries: diary.dataValues,
             dateShow: dateShow,
             dateSave: date
         });

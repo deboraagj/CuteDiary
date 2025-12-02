@@ -1,41 +1,63 @@
-{{!-- <h1>Editar Anotação do dia {{dateShow}}</h1>
-
-<form action="/edit/{{diaries.id}}/{{diaries.date}}?_method=PATCH" method="POST">
-    
-    
-    <input type="hidden" name="date" value="{{dateSave}}">
-    
-   
-
-    <label for="title">Título:</label>
-    <input type="text" id="title" name="title" value="{{diaries.title}}" required><br><br>
-
-    <label for="text">Texto:</label>
-    <textarea id="text" name="text" required>{{diaries.text}}</textarea><br><br>
-
-    <button type="submit">Salvar Alterações</button>
-</form>
-
-<a href="/day?date={{diaries.date}}">Cancelar</a> --}}
-
+{{!-- PÁGINA DE EDIÇÃO
 <div class="page-container">
-
     <h1 class="page-title">Editar Anotação do dia {{dateShow}}</h1>
 
-    <form action="/edit/{{diaries.id}}/{{diaries.date}}?_method=PATCH"
-          method="POST" class="form-box">
-
+    <form action="/edit/{{diaries.id}}/{{diaries.date}}?_method=PATCH"method="POST" class="form-box">
         <input type="hidden" name="date" value="{{dateSave}}">
-
         <label for="title">Título:</label>
         <input type="text" id="title" name="title" value="{{diaries.title}}" required>
-
         <label for="text">Texto:</label>
         <textarea id="text" name="text" required>{{diaries.text}}</textarea>
-
         <button type="submit">Salvar Alterações</button>
     </form>
 
     <a href="/day?date={{diaries.date}}" class="link-back">Cancelar</a>
+</div> --}}
+
+<header class="headerEdit">
+    <a href="/day?date={{dateSave}}" class="btn-cute btn-back">VOLTAR</a>
+    <h1>EDITANDO ANOTAÇÃO DO DIA {{dateShow}}</h1>
+
+    <form action="/edit/{{diaries.id}}/{{dateSave}}?_method=PATCH" method="POST">
+        <button type="submit" class="btn-cute btn-save">SALVAR</button>
+    </form>
+</header>
+
+<div class="editBox">
+
+    <!-- Caixa do título -->
+    <div class="titleEditBox">
+        <div class="titleEditHeader">
+            <h2>Título</h2>
+            <div class="buttonsTitleNote">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <input type="text" name="title" value="{{diaries.title}}" class="inputTitleEdit" form="formEdit" required>
+    </div>
+
+    <!-- Caixa do texto -->
+    <div class="textEditBox">
+        <div class="textEditHeader">
+            <h2>Texto</h2>
+            <div class="buttonsTitleNote">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <textarea 
+            name="text"
+            class="textareaEdit"
+            form="formEdit"
+            required
+        >{{diaries.text}}</textarea>
+    </div>
 
 </div>
+
+<!-- formulário invisível usado pelos inputs -->
+<form id="formEdit" action="/edit/{{diaries.id}}/{{dateSave}}?_method=PATCH" method="POST">
+
+</form>
+

@@ -1,6 +1,8 @@
 <header class="headerDay">
+    <a href="/" class="btn-cute btn-back">
+        Voltar
+    </a>
     <h1 class="page-title">ANOTAÇÕES DO DIA {{dateShow}}</h1>
-
     <a href="/create?date={{dateSave}}" class="btn-cute" style="margin-top:15px;">
         Criar Nova Anotação
     </a>
@@ -9,7 +11,7 @@
 <div class="containerDiary">
     {{#if diaries}}
     {{#each diaries}}
-    <div class="diary-box">
+    <div class="diaryBox">
         <div class="titleDiary">
             <h3>{{this.title}}</h3>
             <div class="buttonsTitleDiary">
