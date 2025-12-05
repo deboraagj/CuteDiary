@@ -988,7 +988,6 @@ body {
 
 /* ===== CAIXA DO TÍTULO ===== */
 .titleEditBox {
-    width: 100%;
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-strong);
@@ -1024,11 +1023,9 @@ body {
 /* input do título */
 .inputTitleEdit {
     font-size: 2.3rem;
-    padding: 15px;
     border: 3px solid var(--purple-dark);
     border-top: none;
     border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-    outline: none;
     color: var(--purple-dark);
     background-color: var(--white);
 }
@@ -1086,69 +1083,43 @@ body {
     padding: 8px 15px;
 }
 
-/* create.handlebars */
 
-/* ====== CONTAINER GERAL ====== */
-.create-container {
+/*  CREATE.hanbdlebras */
+
+/* ===== HEADER ===== */
+.createHeader {
     width: 95%;
-    margin: auto;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* ====== HEADER ====== */
-.create-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
 }
 
-.create-title-header {
+.createHeader h1 {
+    text-align: center;
     font-size: 3rem;
     color: var(--purple-dark);
     text-shadow: 2px 2px 0 var(--white);
 }
 
-.create-btn-back,
-.create-btn-save {
-    font-family: "BebasNeue";
-    font-size: 1.6rem;
-    padding: 8px 15px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    background-color: var(--purple-dark);
-    color: var(--white);
-}
-
-.create-btn-back:hover,
-.create-btn-save:hover {
-    transform: scale(1.05);
-}
-
-/* ====== ERRO ====== */
-.create-error {
-    text-align: center;
-    font-size: 1.4rem;
-    color: #ff4b4b;
-}
-
-/* ====== ÁREA PRINCIPAL ====== */
-.create-content {
+/* ===== CONTÊINER PRINCIPAL ===== */
+.createBox {
+    width: 95%;
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-/* ====== CAIXA DE TÍTULO ====== */
-.create-box-title {
+/* =====  CONTAINER DO TÍTULO ===== */
+.createTitleBox {
+    display: flex;
+    flex-direction: column;
     box-shadow: var(--shadow-strong);
     border-radius: var(--radius-sm);
     background-color: #f50101;
 }
 
-.create-box-title-header {
+.createTitle {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1157,43 +1128,42 @@ body {
     border-radius: var(--radius-top);
 }
 
-.create-box-title-text {
+.createTitle h2 {
     font-size: 3rem;
-    margin: 0 10px;
     color: var(--purple-dark);
     text-shadow: 2px 2px 0 var(--white);
+    margin: 0 10px;
 }
 
-.create-dots span {
+.buttonsTitleNotes {
     width: 30px;
     height: 30px;
     background: var(--purple-dark);
     border-radius: 50%;
     border: 3px solid var(--white);
-    display: inline-block;
 }
 
-/* input */
-.create-input-title {
-    width: 100%;
-    padding: 15px;
+.createInputTitle {
     font-size: 2.3rem;
     border: 3px solid var(--purple-dark);
     border-top: none;
     border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-    outline: none;
-    background-color: var(--white);
     color: var(--purple-dark);
+    background-color: var(--white);
 }
 
-/* ====== CAIXA DO TEXTO ====== */
-.create-box-text {
+/* CONTAINER DA ANOTAÇÃO */
+
+/* ===== CAIXA DO TEXTO ===== */
+.textEditBox {
+    display: flex;
+    flex-direction: column;
     box-shadow: var(--shadow-strong);
     border-radius: var(--radius-sm);
     background-color: #f50101;
 }
 
-.create-box-text-header {
+.createNoteTitle {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1202,24 +1172,35 @@ body {
     border-radius: var(--radius-top);
 }
 
-.create-box-text-title {
+.createNoteTitle h2 {
     font-size: 3rem;
-    margin: 0 10px;
     color: var(--purple-dark);
     text-shadow: 2px 2px 0 var(--white);
+    margin: 0 10px;
 }
 
-/* textarea */
-.create-textarea {
-    min-height: 250px;
-    padding: 15px;
+.createInputNote {
+    width: 95%;
     font-size: 2rem;
+    padding: 15px;
     border: 3px solid var(--purple-dark);
     border-top: none;
     border-radius: 0 0 var(--radius-sm) var(--radius-sm);
     outline: none;
     resize: vertical;
-    background-color: var(--white);
     color: var(--purple-dark);
+    background-color: var(--white);
+}
+
+.btn-save {
+    font-family: "BebasNeue";
+    font-size: 1.6rem;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.btn-back {
+    font-size: 1.6rem;
+    padding: 8px 15px;
 }
 
