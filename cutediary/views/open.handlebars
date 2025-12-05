@@ -1,22 +1,24 @@
+{{!-- PÁGINA PARA VIZUALIZAR ANOTAÇÃO --}}
+
 <header class="headerOpen">
-     <a href="/day?date={{dateSave}}" class="btn-cute btn-back">VOLTAR</a>
-     <h1>ANOTAÇÃO FEITA NO DIA {{dateShow}}</h1>
+    <a href="/day?date={{dateSave}}" class="btn-cute btn-back">VOLTAR</a>
+    <h1>ANOTAÇÃO FEITA NO DIA {{dateShow}}</h1>
 </header>
 
-    <div class="noteBox">
-        <div class="titleNote">
-             <h2>{{diaries.title}}</h2>
-             <div class="buttonsTitleNote">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="textNote">
-            <p>{{diaries.text}}</p>
-        </div>
-        <div class="buttonsNote">
-             <a href="/edit/{{diaries.id}}/{{dateSave}}" class="btn-cute">Editar</a>
-             <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST" style="display:inline;">
-                <button class="btn-cute btn-delete">Deletar</button>
-            </form>
+<div class="noteBox">
+    <div class="titleNote">
+        <h2>{{diaries.title}}</h2>
+        <div class="buttonsTitleNote">
+            <span></span><span></span><span></span>
         </div>
     </div>
+    <div class="textNote">
+        <p>{{diaries.text}}</p>
+    </div>
+    <div class="buttonsNote">
+        <a href="/edit/{{diaries.id}}/{{dateSave}}" class="btn-cute btn-edit">Editar</a>
+        <form action="/delete/{{diaries.id}}/{{dateSave}}?_method=DELETE" method="POST">
+            <button class="btn-cute btn-delete">Deletar</button>
+        </form>
+    </div>
+</div>

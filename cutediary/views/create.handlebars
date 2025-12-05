@@ -1,24 +1,6 @@
-{{!-- <h2>Nova Anotação para {{dateShow}}</h2>
+{{!-- PÁGINA PARA CRIAR ANOTAÇÃO --}}
 
-<form action="/add" method="POST">
-    
-    {{! CAMPO OCULTO: ENVIANDO A DATA SELECIONADA PARA O SERVIDOR }}
-    <input type="hidden" name="date" value="{{dateSave}}">
-    
-    {{#if error}}
-        <p style="color: red;">{{error}}</p>
-    {{/if}}
-
-    <label for="title">Título:</label>
-    <input type="text" id="title" name="title" value="{{title}}" required><br><br>
-
-    <label for="text">Anotação:</label>
-    <textarea id="text" name="text" required>{{text}}</textarea><br><br>
-    
-    <button type="submit">Salvar Anotação</button>
-</form> --}}
-
-<div class="page-container">
+{{!-- <div class="page-container">
 
     <h2 class="page-title">Nova Anotação para {{dateShow}}</h2>
 
@@ -41,4 +23,47 @@
 
     <a href="/day?date={{dateSave}}" class="link-back">Voltar</a>
 
+</div> --}}
+
+<div class="create-container">
+
+    <header class="create-header">
+        <a href="/day?date={{dateSave}}" class="btn-cute btn-back">VOLTAR</a>
+        <h1 class="create-title-header">NOVA ANOTAÇÃO PARA O DIA {{dateShow}}</h1>
+        <button type="submit" form="formCreate" class=" btn-cute btn-save">SALVAR</button>
+    </header>
+
+    <div class="create-content">
+
+        <!-- Caixa do título -->
+        <div class="create-box-title">
+            <div class="create-box-title-header">
+                <h2 class="create-box-title-text">Título</h2>
+                <div class="create-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <input type="text" id="title" name="title" class="create-input-title" value="{{title}}" form="formCreate" required>
+        </div>
+
+        <!-- Caixa do texto -->
+        <div class="create-box-text">
+            <div class="create-box-text-header">
+                <h2 class="create-box-text-title">ANOTAÇÃO</h2>
+                <div class="create-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <textarea id="text" name="text" class="create-textarea" form="formCreate" required>{{text}}</textarea>
+        </div>
+    </div>
+
+    <!-- Form real invisível -->
+    <form id="formCreate" action="/add" method="POST">
+        <input type="hidden" name="date" value="{{dateSave}}">
+    </form>
+
 </div>
+

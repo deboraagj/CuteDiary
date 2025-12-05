@@ -29,7 +29,7 @@ router.get("/day", async (req, res) => {
             diaries: diaries
         })
     } catch (erro) {
-        console.log("ERRO AO LISTAR DIÁRIOS " + erro);
+        console.log("ERRO AO LISTAR DIÁRIOS" + erro);
     }
 });
 

@@ -1,26 +1,10 @@
-{{!-- PÁGINA DE EDIÇÃO
-<div class="page-container">
-    <h1 class="page-title">Editar Anotação do dia {{dateShow}}</h1>
-
-    <form action="/edit/{{diaries.id}}/{{diaries.date}}?_method=PATCH"method="POST" class="form-box">
-        <input type="hidden" name="date" value="{{dateSave}}">
-        <label for="title">Título:</label>
-        <input type="text" id="title" name="title" value="{{diaries.title}}" required>
-        <label for="text">Texto:</label>
-        <textarea id="text" name="text" required>{{diaries.text}}</textarea>
-        <button type="submit">Salvar Alterações</button>
-    </form>
-
-    <a href="/day?date={{diaries.date}}" class="link-back">Cancelar</a>
-</div> --}}
+{{!-- PÁGINA PARA ABRIR A ANOTAÇÃO DO DIÁRIO --}}
 
 <header class="headerEdit">
     <a href="/day?date={{dateSave}}" class="btn-cute btn-back">VOLTAR</a>
     <h1>EDITANDO ANOTAÇÃO DO DIA {{dateShow}}</h1>
 
-    <form action="/edit/{{diaries.id}}/{{dateSave}}?_method=PATCH" method="POST">
-        <button type="submit" class="btn-cute btn-save">SALVAR</button>
-    </form>
+    <button type="submit" form="formEdit" class="btn-cute btn-save">SALVAR</button>
 </header>
 
 <div class="editBox">
@@ -46,18 +30,12 @@
             </div>
         </div>
 
-        <textarea 
-            name="text"
-            class="textareaEdit"
-            form="formEdit"
-            required
-        >{{diaries.text}}</textarea>
+        <textarea name="text" class="textareaEdit" form="formEdit" required>{{diaries.text}}</textarea>
     </div>
 
 </div>
 
 <!-- formulário invisível usado pelos inputs -->
 <form id="formEdit" action="/edit/{{diaries.id}}/{{dateSave}}?_method=PATCH" method="POST">
-
+    <input type="hidden" name="date" value="{{dateSave}}">
 </form>
-

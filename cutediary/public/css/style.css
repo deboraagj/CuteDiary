@@ -514,7 +514,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: aqua; */
 }
 
 .headerDay h1 {
@@ -656,6 +655,12 @@ body {
     transform: scale(1.05);
 }
 
+.btn-create{
+    font-size: 1.6rem;
+    padding: 8px 15px;
+    margin: 0;
+}
+
 /* ============================
    FORMULÁRIOS
 ============================ */
@@ -755,7 +760,7 @@ body {
         gap: 25px;
     }
 
-    .diary-box {
+    .diaryBox {
         width: 90%;
         height: 40vh;
     }
@@ -796,7 +801,7 @@ body {
         gap: 35px;
     }
 
-    .diary-box {
+    .diaryBox {
         width: 70%;
         height: 40vh;
     }
@@ -828,7 +833,7 @@ body {
         gap: 30px;
     }
 
-    .diary-box {
+    .diaryBox {
         width: 40%;
         height: 40vh;
     }
@@ -1069,8 +1074,10 @@ body {
 
 /* ===== BOTÃO SALVAR (no canto direito) ===== */
 .btn-save {
+    font-family: "BebasNeue";
     font-size: 1.6rem;
     padding: 8px 15px;
+    cursor: pointer;
 }
 
 /* ===== BOTÃO VOLTAR ===== */
@@ -1078,3 +1085,141 @@ body {
     font-size: 1.6rem;
     padding: 8px 15px;
 }
+
+/* create.handlebars */
+
+/* ====== CONTAINER GERAL ====== */
+.create-container {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ====== HEADER ====== */
+.create-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-title-header {
+    font-size: 3rem;
+    color: var(--purple-dark);
+    text-shadow: 2px 2px 0 var(--white);
+}
+
+.create-btn-back,
+.create-btn-save {
+    font-family: "BebasNeue";
+    font-size: 1.6rem;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--purple-dark);
+    color: var(--white);
+}
+
+.create-btn-back:hover,
+.create-btn-save:hover {
+    transform: scale(1.05);
+}
+
+/* ====== ERRO ====== */
+.create-error {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #ff4b4b;
+}
+
+/* ====== ÁREA PRINCIPAL ====== */
+.create-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ====== CAIXA DE TÍTULO ====== */
+.create-box-title {
+    box-shadow: var(--shadow-strong);
+    border-radius: var(--radius-sm);
+    background-color: #f50101;
+}
+
+.create-box-title-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f37da3;
+    border: 3px solid var(--purple-dark);
+    border-radius: var(--radius-top);
+}
+
+.create-box-title-text {
+    font-size: 3rem;
+    margin: 0 10px;
+    color: var(--purple-dark);
+    text-shadow: 2px 2px 0 var(--white);
+}
+
+.create-dots span {
+    width: 30px;
+    height: 30px;
+    background: var(--purple-dark);
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    display: inline-block;
+}
+
+/* input */
+.create-input-title {
+    width: 100%;
+    padding: 15px;
+    font-size: 2.3rem;
+    border: 3px solid var(--purple-dark);
+    border-top: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    outline: none;
+    background-color: var(--white);
+    color: var(--purple-dark);
+}
+
+/* ====== CAIXA DO TEXTO ====== */
+.create-box-text {
+    box-shadow: var(--shadow-strong);
+    border-radius: var(--radius-sm);
+    background-color: #f50101;
+}
+
+.create-box-text-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f37da3;
+    border: 3px solid var(--purple-dark);
+    border-radius: var(--radius-top);
+}
+
+.create-box-text-title {
+    font-size: 3rem;
+    margin: 0 10px;
+    color: var(--purple-dark);
+    text-shadow: 2px 2px 0 var(--white);
+}
+
+/* textarea */
+.create-textarea {
+    min-height: 250px;
+    padding: 15px;
+    font-size: 2rem;
+    border: 3px solid var(--purple-dark);
+    border-top: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    outline: none;
+    resize: vertical;
+    background-color: var(--white);
+    color: var(--purple-dark);
+}
+
