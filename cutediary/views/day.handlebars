@@ -1,36 +1,36 @@
 {{!-- PÁGINA PARA VIZUALIZAR ANOTAÇÕES FEITAS NO DIA SELECIONADO --}}
 
-<header class="headerDay">
-    <a href="/" class="btn-cute btn-back">
-        Voltar
-    </a>
+<header class="dayHeader">
+    <a href="/" class="buttonCute buttonBack">Voltar</a>
     <h1 class="page-title">ANOTAÇÕES DO DIA {{dateShow}}</h1>
-    <a href="/create?date={{dateSave}}" class="btn-cute btn-create">
-        Criar Nova Anotação
-    </a>
+    <a href="/create?date={{dateSave}}" class="buttonCute buttonCreate">Criar Nova Anotação</a>
 </header>
 
-<div class="containerDiary">
+<div class="diaryContainer">
+
     {{#if diaries}}
     {{#each diaries}}
-    <div class="diaryBox">
+
+    <div class="boxDiary">
         <div class="titleDiary">
             <h3>{{this.title}}</h3>
-            <div class="buttonsTitleDiary">
+            <div class="balls">
                 <span></span><span></span><span></span>
             </div>
         </div>
+        
         <div class="textDiary">
             <p>{{this.text}}</p>
         </div>
         <div class="btnDiary">
-            <a href="/open/{{this.id}}/{{../dateSave}}" class="btn-cute btn-open">ABRIR</a>
-            <a href="/edit/{{this.id}}/{{../dateSave}}" class="btn-cute btn-edit">Editar</a>
-            <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST" style="display:inline;">
-                <button class="btn-cute btn-delete">Deletar</button>
+            <a href="/open/{{this.id}}/{{../dateSave}}" class="buttonCute buttonOpen">ABRIR</a>
+            <a href="/edit/{{this.id}}/{{../dateSave}}" class="buttonCute buttonEdit">Editar</a>
+            <form action="/delete/{{this.id}}/{{../dateSave}}?_method=DELETE" method="POST">
+                <button class="buttonCute buttonDelete">Deletar</button>
             </form>
         </div>
     </div>
+
     {{/each}}
     {{else}}
     <p style="text-align:center; font-size:1.6rem; color:var(--purple-dark);">

@@ -1,14 +1,15 @@
 {{!-- PÁGINA PRINCIPAL --}}
 
-<header class="headerHome">
+<header class="homeHeader">
     <h1>NEM TODOS OS DIAS, MAS MEU QUERIDO DIÁRIO</h1>
-    <button class="btn-menu"><img src="/icons/bar.png" alt=""></button>
+    <button class="togle"><img src="/icons/bar.png" alt=""></button>
 </header>
 
-<div class="containerAll">
+<div class="mainContainer">
+
+    {{!-- EMOÇÕES --}}
 
 <div class="emotions">
-    {{!-- EMOJIS --}}
 <h2>COMO VOCÊ ESTÁ HOJE?</h2>
     <div class="emojis">
         <button class="emojiEmotion">
@@ -25,18 +26,18 @@
         </button>
     </div>
 
-    {{!-- JANELA --}}
+    {{!-- JANELA DE MENSAGENS --}}
 
     <div class="window">
-        <div class="window-top">
+        <div class="windowHeader">
             <div class="stars star1"></div>
-            <div class="buttons">
+            <div class="balls">
                 <span></span><span></span><span></span>
             </div>
         </div>
 
-        <div class="window-body">
-            <p id="motivation-text"></p>
+        <div class="windowMenssage">
+            <p id="menssage"></p>
             <div class="stars star2"></div>
         </div>
     </div>
@@ -44,11 +45,11 @@
 
     {{!-- CALENDÁRIO --}}
 
-    <div id="calendar">
-        <div class="headerCalendar">
-            <button id="prev-month">&lt;</button>
-            <div id="month-year"></div>
-            <button id="next-month">&gt;</button>
+    <div class="calendar">
+        <div class="calendarHeader">
+            <button id="prevMonth">&lt;</button>
+            <div id="monthYear"></div>
+            <button id="nextMonth">&gt;</button>
         </div>
 
         <div class="weekdays">

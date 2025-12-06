@@ -4,10 +4,10 @@
 
 // CONECTANDO ELEMENTOS DO HTML
 const calendar = document.getElementById("calendar")
-const monthYear = document.getElementById("month-year")
+const monthYear = document.getElementById("monthYear")
 const daysContainer = document.getElementById("days")
-const prevMonth = document.getElementById("prev-month")
-const nextMonth = document.getElementById("next-month")
+const prevMonth = document.getElementById("prevMonth")
+const nextMonth = document.getElementById("nextMonth")
 
 // PARA RECEBER A DATA ATUAL
 let currentDay = new Date()
@@ -85,7 +85,7 @@ renderCalendar(currentDay)
 
 // CONECTANDO ELEMENTOS DO HTML
 const emotionButtons = document.querySelectorAll(".emojiEmotion")
-const motivationTextElement = document.getElementById("motivation-text")
+const motivationTextElement = document.getElementById("menssage")
 
 function getRandomPhrase(emotion) {
     const phrases = motivationalPhrases[emotion];
