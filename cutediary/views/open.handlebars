@@ -1,23 +1,23 @@
-{{!-- PÁGINA PARA VIZUALIZAR ANOTAÇÃO --}}
+{{!-- PÁGINA PARA VIZUALIZAR A ANOTAÇÃO DO DIÁRIO --}}
 
-<header class="showHeader">
+<header class="headerPage">
     <a href="/day?date={{dateSave}}" class="buttonCute buttonBack">VOLTAR</a>
     <h1>ANOTAÇÃO FEITA NO DIA {{dateShow}}</h1>
 </header>
 
-<div class="noteBox">
-    <div class="titleNote">
+<div class="windowsContainer windowsContainerCreateEditShow">
+    <div class="titleWindow">
         <h2>{{diaries.title}}</h2>
         <div class="balls bigBalls">
             <span></span><span></span><span></span>
         </div>
     </div>
 
-    <div class="textNote">
+    <div class="textWindow textBorderRadiusNone">
         <p>{{diaries.text}}</p>
     </div>
 
-    <div class="buttonsNote">
+    <div class="footerWindow">
         <a href="/edit/{{diaries.id}}/{{dateSave}}" class="buttonCute buttonEdit">Editar</a>
         <form action="/delete/{{diaries.id}}/{{dateSave}}?_method=DELETE" method="POST">
             <button class="buttonCute buttonDelete">Deletar</button>

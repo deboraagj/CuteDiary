@@ -1,39 +1,33 @@
 {{!-- PÁGINA PARA CRIAR ANOTAÇÃO --}}
 
-
-
-    <header class="createHeader">
-        <a href="/day?date={{dateSave}}" class="btn-cute btn-back">VOLTAR</a>
+    <header class="headerPage">
+        <a href="/day?date={{dateSave}}" class="buttonCute buttonBack">VOLTAR</a>
         <h1> NOVA ANOTAÇÃO PARA O DIA {{dateShow}}</h1>
-        <button type="submit" form="formCreate" class=" btn-cute btn-save">SALVAR</button>
+        <button type="submit" form="formCreate" class="buttonCute buttonSave">SALVAR</button>
     </header>
 
-    <div class="createBox">
-
-        <!-- CONTAINER DO TÍTULO -->
-        <div class="createTitleBox">
-            <div class="createTitle">
+    <div class="windowsContainer windowsContainerCreateEditShow">
+        <div class="inputTitleContainer">
+            <div class="titleWindow">
                 <h2>TÍTULO</h2>
-                <div class="buttonsTitleNote">
+                <div class="balls">
                     <span></span><span></span><span></span>
                 </div>
             </div>
-            <input type="text" id="title" name="title" class="createInputTitle" value="{{title}}" form="formCreate" required>
+            <input type="text" id="title" name="title" class="textWindow textInputTitleContainer" value="{{title}}" form="formCreate" required>
         </div>
 
-        <!-- CONTAINER DO ANOTAÇÃO -->
-        <div class="createNoteBox">
-            <div class="createNoteTitle">
-                <h2 class="create-box-text-title">ANOTAÇÃO</h2>
-                <div class="buttonsTitleNotes">
+        <div class="inputTextContaniner">
+            <div class="titleWindow">
+                <h2>ANOTAÇÃO</h2>
+                <div class="balls">
                     <span></span><span></span><span></span>
                 </div>
             </div>
-            <textarea id="text" name="text" class="createInputNote" form="formCreate" required>{{text}}</textarea>
+            <textarea id="text" name="text" class="textWindow textInputTextContainer" form="formCreate" required>{{text}}</textarea>
         </div>
     </div>
 
-    <!-- Form real invisível -->
     <form id="formCreate" action="/add" method="POST">
         <input type="hidden" name="date" value="{{dateSave}}">
     </form>

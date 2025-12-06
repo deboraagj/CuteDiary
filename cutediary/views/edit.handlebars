@@ -1,40 +1,33 @@
-{{!-- PÁGINA PARA ABRIR A ANOTAÇÃO DO DIÁRIO --}}
+{{!-- PÁGINA PARA EDITAR A ANOTAÇÃO DO DIÁRIO --}}
 
-<header class="headerEdit">
-    <a href="/day?date={{dateSave}}" class="btn-cute btn-back">VOLTAR</a>
+<header class="headerPage">
+    <a href="/day?date={{dateSave}}" class="buttonCute buttonBack">VOLTAR</a>
     <h1>EDITANDO ANOTAÇÃO DO DIA {{dateShow}}</h1>
-
-    <button type="submit" form="formEdit" class="btn-cute btn-save">SALVAR</button>
+    <button type="submit" form="formEdit" class="buttonCute buttonSave">SALVAR</button>
 </header>
 
-<div class="editBox">
-
-    <!-- Caixa do título -->
-    <div class="titleEditBox">
-        <div class="titleEditHeader">
+<div class="windowsContainer windowsContainerCreateEditShow">
+    <div class="inputTitleContainer">
+        <div class="titleWindow">
             <h2>Título</h2>
-            <div class="buttonsTitleNote">
+            <div class="balls">
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <input type="text" name="title" value="{{diaries.title}}" class="inputTitleEdit" form="formEdit" required>
+        <input type="text" name="title" value="{{diaries.title}}" class="textWindow textInputTitleContainer" form="formEdit" required>
     </div>
 
-    <!-- Caixa do texto -->
-    <div class="textEditBox">
-        <div class="textEditHeader">
+    <div class="inputTextContaniner">
+        <div class="titleWindow">
             <h2>Texto</h2>
-            <div class="buttonsTitleNote">
+            <div class="balss">
                 <span></span><span></span><span></span>
             </div>
         </div>
-
-        <textarea name="text" class="textareaEdit" form="formEdit" required>{{diaries.text}}</textarea>
+        <textarea name="text" class="textWindow textInputTextContainer" form="formEdit" required>{{diaries.text}}</textarea>
     </div>
-
 </div>
 
-<!-- formulário invisível usado pelos inputs -->
 <form id="formEdit" action="/edit/{{diaries.id}}/{{dateSave}}?_method=PATCH" method="POST">
     <input type="hidden" name="date" value="{{dateSave}}">
 </form>

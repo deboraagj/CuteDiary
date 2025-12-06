@@ -36,9 +36,9 @@
     font-style: normal;
 }
 
-/* ===============================
-       GERAL
-================================ */
+/* =========
+    GERAL
+============*/
 
 body {
     font-family: "BebasNeue", sans-serif;
@@ -50,6 +50,226 @@ body {
     padding: 0;
     height: 100vh;
     box-sizing: border-box;
+}
+
+/* ============================
+     ESTILIZAÇÃO DAS VIEWS 
+============================ */
+
+.headerPage {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerPage h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--purple-dark);
+    text-shadow: 2px 2px 0 var(--white);
+}
+
+/* ============================
+   BOTÕES PADRÃO
+============================ */
+
+.buttonCute {
+    padding: 1px 10px;
+    background: var(--pink-main);
+    border: 3px solid var(--purple-dark);
+    color: var(--purple-dark);
+    text-decoration: none;
+    font-size: 1.4rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft);
+    transition: 0.2s;
+}
+
+.buttonCute:hover {
+    transform: scale(1.05);
+}
+
+.btnDiary {
+    background-color: #f37da3;
+    border: 3px solid var(--purple-dark);
+    border-top: none;
+    border-radius: var(--radius-bottom);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    padding: 5px;
+}
+
+.buttonOpen{
+    background-color: var(--green);
+}
+
+.buttonEdit{
+    background-color: var(--yellow-star);
+}
+
+.buttonDelete {
+    font-family: "BebasNeue", sans-serif;
+    background: var(--red);
+    cursor: pointer;
+}
+
+.buttonDelete:hover{
+    transform: scale(1.05);
+}
+
+.buttonCreate{
+    font-size: 1.6rem;
+    padding: 8px 15px;
+    margin: 0;
+}
+
+.buttonBack {
+    padding: 8px 15px;
+    display: block;
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--purple-dark);
+}
+
+.buttonSave {
+    font-family: "BebasNeue";
+    font-size: 1.6rem;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* ============
+  JANELA PADRÃO
+ ============== */
+
+ /* CONTAINER DAS JANELAS */
+
+ .windowsContainer {
+    width: 95%;
+    display: flex;
+}
+
+.windowsContainerDay{
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:50px
+}
+
+.windowsContainerCreateEditShow{
+    flex-direction: column;
+}
+
+.inputTitleContainer{
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-strong);
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+}
+
+.inputTextContaniner{
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-strong);
+    border-radius: var(--radius-sm);
+}
+
+.containerDiary {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    box-shadow: var(--shadow-strong);
+    border-radius: var(--radius-sm);
+}
+
+/* TÍTULOS DA JANELA */
+.titleWindow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f37da3;
+    border: 3px solid var(--purple-dark);
+    border-bottom: 3px solid var(--purple-dark);
+    border-radius: var(--radius-top);
+}
+
+
+.titleWindow h2{
+    margin: 0 5px 0 5px;
+    font-size: 2rem;
+    color: var(--purple-dark);
+    text-shadow: 1px 1px 0 var(--white);
+}
+
+/* TEXTOS E INPUTS DAS JANELAS*/
+.textWindow {
+    height: auto;
+    background-color: var(--white);
+    border: 3px solid var(--purple-dark);
+    border-top: none;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    color: var(--purple-dark);
+    border-radius: var(--radius-bottom);
+}
+
+.textBorderRadiusNone{
+    border-radius: 0;
+}
+
+.textWindow p {
+    color: var(--purple-dark);
+    font-size: 1.3rem;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: justify;
+}
+
+.textWindowDay p{
+    /* TRUNCAMENTO */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.textInputTitleContainer{
+    min-height: 40px;
+    font-size: 2rem;
+    outline: none;
+    padding: 10px;
+}
+
+.textInputTextContainer{
+    min-height: 250px;
+    font-size: 2rem;
+    padding: 10px;
+    outline: none;
+    resize: vertical;
+}
+
+/* RODAPÉS DAS JANELAS */
+.footerWindow{
+    background-color: #f37da3;
+    border: 3px solid var(--purple-dark);
+    border-top: none;
+    border-radius: var(--radius-bottom);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    padding: 5px;
 }
 
 /* BOLINHAS DE ENFEITE */
@@ -76,11 +296,7 @@ body {
     height: 18px;
 }
 
-/* ============================
-     ESTILIZAÇÃO DAS VIEWS 
-============================ */
-
-/* =============== 
+/* /* =============== 
   HOME.HANDLEBARS 
 ================= */
 
@@ -98,7 +314,7 @@ body {
     margin: 0;
 }
 
-.togle {
+/* .togle {
     background-color: transparent;
     border: none;
     padding: 5px;
@@ -115,7 +331,7 @@ body {
 .togle img {
     width: 30px;
     height: 30px;
-}
+} */
 
 /* =======================
     CONTAINER PRINCIPAL
@@ -124,12 +340,10 @@ body {
 .mainContainer {
     width: 95%;
     display: flex;
-    gap: 30px;
-    border-radius: var(--radius-lg);
-    height: 80vh;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
+    justify-content: space-between;
+    /* margin-bottom: 30px; */
+    /* background-color: aqua; */
 }
 
 /* ===================
@@ -144,8 +358,8 @@ body {
 
 .calendarHeader {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 10px 15px;
     background-color: var(--pink-main);
     color: var(--purple-dark);
@@ -159,6 +373,7 @@ body {
     background: none;
     color: var(--purple-dark);
     font-size: 35px;
+    font-weight: bold;
     cursor: pointer;
     padding: 5px;
     border: none;
@@ -199,7 +414,10 @@ body {
 #days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    padding: 5px;
+    
+    /* FIXAR 6 LINHAS */
+    grid-template-rows: repeat(6, 1fr);
+    padding: 5px 5px;
     text-align: center;
     color: var(--purple-dark);
     background-color: var(--white);
@@ -239,7 +457,7 @@ body {
     EMOÇÕES
 =============== */
 
-.emotions {
+.emotionsContainer {
     width: 33%;
     display: flex;
     flex-direction: column;
@@ -247,7 +465,7 @@ body {
     justify-content: space-between;
 }
 
-.emotions h2 {
+.emotionsContainer h2 {
     text-align: center;
     width: 100%;
     background-color: var(--pink-main);
@@ -357,473 +575,126 @@ body {
     padding: 15px;
 }
 
+/* FOOTER */
 
-/* ===============
-   DAY.HANDLEBARS
-================== */
+/* ============================
+        FOOTER FOFO 💜
+============================ */
 
-.dayHeader {
-    width: 95%;
+.footerCute {
+    width: 100%;
+    background-color: var(--pink-main);
+    border-top: 3px solid var(--purple-dark);
+    margin-top: 40px;
+}
+
+.footerContentCute {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px 0 50px;
+}
+
+/* ===== FOTO ===== */
+
+.footerPhotoCute {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--white);
+}
+
+.footerPhotoCute img {
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== DESENVOLVEDORA ===== */
+
+.footerDevInfoCute {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 15px;
 }
 
-.dayHeader h1 {
-    text-align: center;
-    font-size: 3rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-}
-
-.diaryContainer {
-    width: 95%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
-}
-
-.boxDiary{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 40%;
-    height: 40vh;
-    box-shadow: var(--shadow-strong);
-    border-radius: var(--radius-sm);
-}
-
-.titleDiary{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #f37da3;
-    border: 3px solid var(--purple-dark);
-    border-bottom: 3px solid var(--purple-dark);
-    border-radius: var(--radius-top);
-}
-
-.titleDiary h3 {
-    margin: 0 5px 0 5px;
-    font-size: 2rem;
+.footerNameCute h3 {
+    margin: 0;
+    font-size: 1.45rem;
     color: var(--purple-dark);
     text-shadow: 1px 1px 0 var(--white);
 }
 
-.textDiary {
-    height: 25vh;
-    background-color: var(--white);
-    border: 3px solid var(--purple-dark);
-    border-top: none;
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-}
-
-.textDiary p {
-    color: var(--purple-dark);
-    font-size: 1.3rem;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: justify;
-
-    /* TRUNCAMENTO */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* ============================
-   BOTÕES PADRÃO
-============================ */
-
-.buttonCute {
-    padding: 1px 10px;
-    background: var(--pink-main);
-    border: 3px solid var(--purple-dark);
-    color: var(--purple-dark);
-    text-decoration: none;
-    font-size: 1.4rem;
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-soft);
-    transition: 0.2s;
-}
-
-.buttonCute:hover {
-    transform: scale(1.05);
-}
-
-.btnDiary {
-    background-color: #f37da3;
-    border: 3px solid var(--purple-dark);
-    border-top: none;
-    border-radius: var(--radius-bottom);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    gap: 10px;
+.footerNameCute span {
+    color: var(--yellow-star);
+    background-color: var(--purple-dark);
+    text-shadow: none;
+    border-radius: 10px;
     padding: 5px;
 }
 
-.buttonOpen{
-    background-color: var(--green);
+.footerNameCute p {
+    color: var(--white);
+    margin: 3px 0 0 0;
+    font-size: 1rem;
 }
 
-.buttonEdit{
+/* ===== CONTATOS ===== */
+
+.footerContactCute h4 {
+    font-size: 2rem;
+    color: var(--purple-dark);
+    margin: 2px 0 0 0;
+    text-shadow: 1px 1px 0 var(--white);
+}
+
+.footerContactCute ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footerContactCute li {
+    margin: 5px 0;
+}
+
+.footerContactCute a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--purple-dark);
+    font-weight: bold;
     background-color: var(--yellow-star);
+    box-shadow: var(--shadow-soft);
+    padding: 5px 8px;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    transition: 0.3s;
 }
 
-.buttonDelete {
-    font-family: "BebasNeue", sans-serif;
-    background: var(--red);
-    cursor: pointer;
-}
-
-.buttonDelete:hover{
+/* HOVER FOFO */
+.footerContactCute a:hover {
     transform: scale(1.05);
 }
 
-.buttonCreate{
-    font-size: 1.6rem;
-    padding: 8px 15px;
+/* COPYRIGHT */
+
+.footerCopyCute {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--purple-dark);
     margin: 0;
 }
 
-.buttonBack {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    font-size: 1.5rem;
-    color: var(--purple-dark);
-}
-
-/* ============================
-        OPEN.HANDLEBARS
-============================ */
-
-.showHeader {
-    width: 95%;
+/* ÍCONES DE CONTATO */
+.footerItemCute {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
 }
 
-.showHeader h1 {
-    text-align: center;
-    font-size: 3rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-    margin-bottom: 25px;
+.footerIconCute {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
-
-.noteBox {
-    width: 95%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: var(--shadow-strong);
-    border-radius: var(--radius-sm);
-}
-
-.titleNote {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #f37da3;
-    border: 3px solid var(--purple-dark);
-    border-bottom: 3px solid var(--purple-dark);
-    border-radius: var(--radius-top);
-}
-
-.titleNote h2{
-    margin: 0 5px 0 5px;
-    font-size: 2rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-}
-
-
-.textNote {
-    height: auto;
-    background-color: var(--white);
-    border: 3px solid var(--purple-dark);
-    border-top: none;
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-}
-
-.textNote p{
-    color: var(--purple-dark);
-    font-size: 2rem;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: justify;
-}
-
-.buttonsNote{
-    background-color: #f37da3;
-    border: 3px solid var(--purple-dark);
-    border-top: none;
-    border-radius: var(--radius-bottom);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    gap: 10px;
-    padding: 5px;
-}
-
-/* edit.handlebars */
-
-/* ===== HEADER ===== */
-.headerEdit {
-    width: 95%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 25px;
-}
-
-.headerEdit h1 {
-    text-align: center;
-    font-size: 3rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-}
-
-/* ===== CONTÊINER PRINCIPAL ===== */
-.editBox {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-/* ===== CAIXA DO TÍTULO ===== */
-.titleEditBox {
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-strong);
-    border-radius: var(--radius-sm);
-    background-color: #f50101;
-}
-
-.titleEditHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f37da3;
-    border: 3px solid var(--purple-dark);
-    border-radius: var(--radius-top);
-}
-
-.titleEditHeader h2 {
-    font-size: 3rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-    margin: 0 10px;
-}
-
-/* bolinhas */
-.buttonsTitleNote span {
-    width: 30px;
-    height: 30px;
-    background: var(--purple-dark);
-    border-radius: 50%;
-    border: 3px solid var(--white);
-}
-
-/* input do título */
-.inputTitleEdit {
-    font-size: 2.3rem;
-    border: 3px solid var(--purple-dark);
-    border-top: none;
-    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-    color: var(--purple-dark);
-    background-color: var(--white);
-}
-
-/* ===== CAIXA DO TEXTO ===== */
-.textEditBox {
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-strong);
-    border-radius: var(--radius-sm);
-    background-color: #f50101;
-}
-
-.textEditHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f37da3;
-    border: 3px solid var(--purple-dark);
-    border-radius: var(--radius-top);
-}
-
-.textEditHeader h2 {
-    font-size: 3rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-    margin: 0 10px;
-}
-
-/* textarea */
-.textareaEdit {
-    min-height: 250px;
-    font-size: 2rem;
-    padding: 15px;
-    border: 3px solid var(--purple-dark);
-    border-top: none;
-    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-    outline: none;
-    resize: vertical;
-    color: var(--purple-dark);
-    background-color: var(--white);
-}
-
-/* ===== BOTÃO SALVAR (no canto direito) ===== */
-.btn-save {
-    font-family: "BebasNeue";
-    font-size: 1.6rem;
-    padding: 8px 15px;
-    cursor: pointer;
-}
-
-/* ===== BOTÃO VOLTAR ===== */
-.btn-back {
-    font-size: 1.6rem;
-    padding: 8px 15px;
-}
-
-
-/*  CREATE.hanbdlebras */
-
-/* ===== HEADER ===== */
-.createHeader {
-    width: 95%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 25px;
-}
-
-.createHeader h1 {
-    text-align: center;
-    font-size: 3rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-}
-
-/* ===== CONTÊINER PRINCIPAL ===== */
-.createBox {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-/* =====  CONTAINER DO TÍTULO ===== */
-.createTitleBox {
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-strong);
-    border-radius: var(--radius-sm);
-    background-color: #f50101;
-}
-
-.createTitle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f37da3;
-    border: 3px solid var(--purple-dark);
-    border-radius: var(--radius-top);
-}
-
-.createTitle h2 {
-    font-size: 3rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-    margin: 0 10px;
-}
-
-.buttonsTitleNotes {
-    width: 30px;
-    height: 30px;
-    background: var(--purple-dark);
-    border-radius: 50%;
-    border: 3px solid var(--white);
-}
-
-.createInputTitle {
-    font-size: 2.3rem;
-    border: 3px solid var(--purple-dark);
-    border-top: none;
-    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-    color: var(--purple-dark);
-    background-color: var(--white);
-}
-
-/* CONTAINER DA ANOTAÇÃO */
-
-/* ===== CAIXA DO TEXTO ===== */
-.textEditBox {
-    display: flex;
-    flex-direction: column;
-    box-shadow: var(--shadow-strong);
-    border-radius: var(--radius-sm);
-    background-color: #f50101;
-}
-
-.createNoteTitle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f37da3;
-    border: 3px solid var(--purple-dark);
-    border-radius: var(--radius-top);
-}
-
-.createNoteTitle h2 {
-    font-size: 3rem;
-    color: var(--purple-dark);
-    text-shadow: 2px 2px 0 var(--white);
-    margin: 0 10px;
-}
-
-.createInputNote {
-    width: 95%;
-    font-size: 2rem;
-    padding: 15px;
-    border: 3px solid var(--purple-dark);
-    border-top: none;
-    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-    outline: none;
-    resize: vertical;
-    color: var(--purple-dark);
-    background-color: var(--white);
-}
-
-.btn-save {
-    font-family: "BebasNeue";
-    font-size: 1.6rem;
-    padding: 8px 15px;
-    cursor: pointer;
-}
-
-.btn-back {
-    font-size: 1.6rem;
-    padding: 8px 15px;
-}
-
-
 
