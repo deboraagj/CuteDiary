@@ -14,7 +14,9 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <input type="text" name="title" value="{{diaries.title}}" class="textWindow textInputTitleContainer" form="formEdit" required>
+        <input type="text" id="title" name="title" value="{{diaries.title}}" class="textWindow textInputTitleContainer"
+            form="formEdit" required maxlength="50">
+        <span id="charCountInside" class="charCountInside">0 / 50</span>
     </div>
 
     <div class="inputTextContaniner">
@@ -24,10 +26,39 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <textarea name="text" class="textWindow textInputTextContainer" form="formEdit" required>{{diaries.text}}</textarea>
+        <textarea name="text" class="textWindow textInputTextContainer" form="formEdit"
+            required>{{diaries.text}}</textarea>
     </div>
 </div>
 
 <form id="formEdit" action="/edit/{{diaries.id}}/{{dateSave}}?_method=PATCH" method="POST">
     <input type="hidden" name="date" value="{{dateSave}}">
 </form>
+
+{{!-- ATUALIZAR QUANTIDADE DE CARACTERS DIGITADOS --}}
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const titleInput = document.getElementById("title");
+        const counter = document.getElementById("charCountInside");
+        const max = titleInput.getAttribute("maxlength");
+
+        if (titleInput && counter) {
+
+            function updateCounter() {
+                const length = titleInput.value.length;
+                counter.textContent = `${length} / ${max}`;
+
+                if (length >= max) {
+                    counter.classList.add("charCountLimit");
+                } else {
+                    counter.classList.remove("charCountLimit");
+                }
+            }
+
+            titleInput.addEventListener("input", updateCounter);
+            updateCounter();
+        }
+    });
+</script>

@@ -1,35 +1,64 @@
 {{!-- PÁGINA PARA CRIAR ANOTAÇÃO --}}
 
-    <header class="headerPage">
-        <a href="/day?date={{dateSave}}" class="buttonCute buttonBack">VOLTAR</a>
-        <h1> NOVA ANOTAÇÃO PARA O DIA {{dateShow}}</h1>
-        <button type="submit" form="formCreate" class="buttonCute buttonSave">SALVAR</button>
-    </header>
+<header class="headerPage">
+    <a href="/day?date={{dateSave}}" class="buttonCute buttonBack">VOLTAR</a>
+    <h1> NOVA ANOTAÇÃO PARA O DIA {{dateShow}}</h1>
+    <button type="submit" form="formCreate" class="buttonCute buttonSave">SALVAR</button>
+</header>
 
-    <div class="windowsContainer windowsContainerCreateEditShow">
-        <div class="inputTitleContainer">
-            <div class="titleWindow">
-                <h2>TÍTULO</h2>
-                <div class="balls">
-                    <span></span><span></span><span></span>
-                </div>
+<div class="windowsContainer windowsContainerCreateEditShow">
+    <div class="inputTitleContainer">
+        <div class="titleWindow">
+            <h2>TÍTULO</h2>
+            <div class="balls">
+                <span></span><span></span><span></span>
             </div>
-            <input type="text" id="title" name="title" class="textWindow textInputTitleContainer" value="{{title}}" form="formCreate" required>
         </div>
-
-        <div class="inputTextContaniner">
-            <div class="titleWindow">
-                <h2>ANOTAÇÃO</h2>
-                <div class="balls">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-            <textarea id="text" name="text" class="textWindow textInputTextContainer" form="formCreate" required>{{text}}</textarea>
-        </div>
+        <input type="text" id="title" name="title" class="textWindow textInputTitleContainer" value="{{title}}"
+            form="formCreate" required maxlength="50">
+        <span id="charCountInside" class="charCountInside">0 / 50</span>
     </div>
 
-    <form id="formCreate" action="/add" method="POST">
-        <input type="hidden" name="date" value="{{dateSave}}">
-    </form>
+    <div class="inputTextContaniner">
+        <div class="titleWindow">
+            <h2>ANOTAÇÃO</h2>
+            <div class="balls">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <textarea id="text" name="text" class="textWindow textInputTextContainer" form="formCreate"
+            required>{{text}}</textarea>
+    </div>
+</div>
 
+<form id="formCreate" action="/add" method="POST">
+    <input type="hidden" name="date" value="{{dateSave}}">
+</form>
 
+{{!-- ATUALIZAR QUANTIDADE DE CARACTERS DIGITADOS --}}
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const titleInput = document.getElementById("title");
+        const counter = document.getElementById("charCountInside");
+        const max = titleInput.getAttribute("maxlength");
+
+        if (titleInput && counter) {
+
+            function updateCounter() {
+                const length = titleInput.value.length;
+                counter.textContent = `${length} / ${max}`;
+
+                if (length >= max) {
+                    counter.classList.add("charCountLimit");
+                } else {
+                    counter.classList.remove("charCountLimit");
+                }
+            }
+
+            titleInput.addEventListener("input", updateCounter);
+            updateCounter();
+        }
+    });
+</script>
