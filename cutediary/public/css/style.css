@@ -672,9 +672,6 @@ body {
     text-shadow: 1px 1px 0 var(--white);
 }
 
-.footerContactCute ul {
-    display: flex;
-}
 
 .footerContactCute li {
     margin: 5px 10px;
@@ -731,11 +728,11 @@ body {
     .windowsContainer,
     .homeHeader {
         width: 90%;
-        padding: 0;
     }
 
     .footerContentCute {
          width: 90%;
+         height: 100%;
     }
 
     /* Aumenta o tamanho das fontes e margens para maior visibilidade em telas grandes */
