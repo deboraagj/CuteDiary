@@ -103,11 +103,11 @@ body {
     padding: 5px;
 }
 
-.buttonOpen{
+.buttonOpen {
     background-color: var(--green);
 }
 
-.buttonEdit{
+.buttonEdit {
     background-color: var(--yellow-star);
 }
 
@@ -117,11 +117,11 @@ body {
     cursor: pointer;
 }
 
-.buttonDelete:hover{
+.buttonDelete:hover {
     transform: scale(1.05);
 }
 
-.buttonCreate{
+.buttonCreate {
     font-size: 1.6rem;
     padding: 8px 15px;
     margin: 0;
@@ -146,26 +146,24 @@ body {
     JANELA PADRÃO
     ============== */
 
-/* CONTAINER DAS JANELAS */
-
 .windowsContainer {
     width: 95%;
     display: flex;
 }
 
-.windowsContainerDay{
+.windowsContainerDay {
     align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    gap:50px
+    gap: 50px
 }
 
-.windowsContainerCreateEditShow{
+.windowsContainerCreateEditShow {
     flex-direction: column;
 }
 
-.inputTitleContainer{
+.inputTitleContainer {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -174,7 +172,7 @@ body {
     margin-bottom: 20px;
 }
 
-.inputTextContaniner{
+.inputTextContaniner {
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-strong);
@@ -204,7 +202,7 @@ body {
 }
 
 
-.titleWindow h2{
+.titleWindow h2 {
     margin: 0 5px 0 5px;
     font-size: 2rem;
     color: var(--purple-dark);
@@ -221,13 +219,13 @@ body {
     border: 3px solid var(--purple-dark);
     border-top: none;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     color: var(--purple-dark);
     border-radius: var(--radius-bottom);
 }
 
-.textBorderRadiusNone{
+.textBorderRadiusNone {
     border-radius: 0;
 }
 
@@ -239,7 +237,7 @@ body {
     text-align: justify;
 }
 
-.textWindowDay p{
+.textWindowDay p {
     /* TRUNCAMENTO */
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -248,7 +246,7 @@ body {
     text-overflow: ellipsis;
 }
 
-.textInputTitleContainer{
+.textInputTitleContainer {
     min-height: 40px;
     font-size: 2rem;
     outline: none;
@@ -271,7 +269,7 @@ body {
     font-weight: bold;
 }
 
-.textInputTextContainer{
+.textInputTextContainer {
     min-height: 250px;
     font-size: 2rem;
     padding: 10px;
@@ -280,7 +278,7 @@ body {
 }
 
 /* RODAPÉS DAS JANELAS */
-.footerWindow{
+.footerWindow {
     background-color: #f37da3;
     border: 3px solid var(--purple-dark);
     border-top: none;
@@ -295,7 +293,7 @@ body {
 
 /* BOLINHAS DE ENFEITE */
 
-.balls{
+.balls {
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -312,7 +310,7 @@ body {
     border: 3px solid var(--white);
 }
 
-.bigBalls span{
+.bigBalls span {
     width: 18px;
     height: 18px;
 }
@@ -363,8 +361,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin-bottom: 30px; */
-    /* background-color: aqua; */
 }
 
 /* ===================
@@ -401,8 +397,7 @@ body {
     transition: transform 0.3s;
 }
 
-.calendarHeader
-    button:hover {
+.calendarHeader button:hover {
     transform: scale(1.5);
 }
 
@@ -435,7 +430,7 @@ body {
 #days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    
+
     /* FIXAR 6 LINHAS */
     grid-template-rows: repeat(6, 1fr);
     padding: 5px 5px;
@@ -539,6 +534,15 @@ body {
 /* =====================
     JANELA DE MENSAGENS
 ======================== */
+
+.pageHome {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between
+}
 
 .window {
     width: 100%;
@@ -660,8 +664,9 @@ body {
 
 /* ===== CONTATOS ===== */
 
-.footerContactCute{
+.footerContactCute {
     display: flex;
+    flex-direction: column;
 }
 
 .footerContactCute h4 {
@@ -684,7 +689,6 @@ body {
     box-shadow: var(--shadow-soft);
     padding: 5px 8px;
     border-radius: var(--radius-sm);
-    display: inline-block;
     transition: 0.3s;
 }
 
@@ -721,6 +725,7 @@ body {
 
 /* 1. Responsividade para Telas Grandes (Desktop/Monitores Grandes, ex: > 1900px) */
 @media (min-width: 1900px) {
+
     .headerPage,
     .mainContainer,
     .windowsContainer,
@@ -737,15 +742,15 @@ body {
         --font-medium: 1.7rem;
         --font-small: 1.4rem;
     }
-    
+
     .headerPage h1 {
         font-size: 3.5rem;
     }
-    
+
     .calendarHeader {
         font-size: 45px;
     }
-    
+
     #days div {
         font-size: 1.5rem;
         padding: 10px 5px;
@@ -754,13 +759,14 @@ body {
     .emojis button img {
         width: 120px;
     }
-    
+
     .emojiEmotion h3 {
         font-size: 1.1rem;
     }
-    
+
     .containerDiary {
-        width: 45%; /* Aumenta um pouco a largura dos cards para telas grandes */
+        width: 45%;
+        /* Aumenta um pouco a largura dos cards para telas grandes */
     }
 }
 
@@ -789,11 +795,11 @@ body {
     .calendarHeader {
         font-size: 30px;
     }
-    
+
     .weekdays div {
         font-size: var(--font-small);
     }
-    
+
     #days div {
         font-size: 1.1rem;
         padding: 6px 3px;
@@ -813,9 +819,9 @@ body {
         gap: 20px;
         margin-bottom: 20px;
     }
-    
+
     .calendar {
-        width: 95%; 
+        width: 95%;
     }
 
     .emotionsContainer {
@@ -828,13 +834,13 @@ body {
     }
 
     .emojis button img {
-        width: 60px; 
+        width: 60px;
     }
-    
+
     .emojiEmotion h3 {
         font-size: 0.9rem;
     }
-    
+
     /* Fontes */
     :root {
         --font-large: 2.0em;
@@ -845,15 +851,15 @@ body {
     .headerPage h1 {
         font-size: 2.2rem;
     }
-    
+
     .calendarHeader {
         font-size: 25px;
     }
-    
+
     .calendarHeader button {
         font-size: 25px;
     }
-    
+
     .weekdays div {
         font-size: 1rem;
     }
@@ -867,8 +873,8 @@ body {
         padding: 5px 2px;
         margin: 3px 6px;
     }
-    
-    
+
+
     .containerDiary {
         width: 95%;
     }
@@ -884,19 +890,19 @@ body {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .footerPhotoCute {
         width: 70px;
         height: 70px;
     }
-    
+
     .footerContactCute ul {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 10px;
     }
-    
+
     .footerContactCute h4 {
         margin-top: 10px;
         font-size: 1.5rem;
@@ -909,33 +915,43 @@ body {
         font-size: 1.8rem;
     }
 
-    .buttonCute, .buttonCreate, .buttonBack, .buttonSave {
+    .buttonCute,
+    .buttonCreate,
+    .buttonBack,
+    .buttonSave {
         font-size: 1.2rem;
         padding: 5px 10px;
     }
-    
+
     .calendarHeader {
         font-size: 20px;
     }
-    
+
     .calendarHeader button {
         font-size: 20px;
     }
-    
+
     .emojis button img {
         width: 50px;
     }
-    
+
     .emojiEmotion h3 {
         font-size: 0.7rem;
     }
-    
+
     #menssage {
         font-size: 1.5rem;
     }
-    
-    .textInputTitleContainer, .textInputTextContainer {
+
+    .textInputTitleContainer,
+    .textInputTextContainer {
         font-size: 1.5rem;
         padding: 8px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
