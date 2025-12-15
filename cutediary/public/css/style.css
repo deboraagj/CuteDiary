@@ -609,6 +609,7 @@ body {
     background-color: var(--pink-main);
     border-top: 3px solid var(--purple-dark);
     margin-top: 40px;
+    background-color: #ff6a6a;
 }
 
 .footerContentCute {
