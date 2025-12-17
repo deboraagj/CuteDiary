@@ -605,28 +605,25 @@ body {
 ============ */
 
 .footerCute {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     background-color: var(--pink-main);
     border-top: 3px solid var(--purple-dark);
-    margin-top: 40px;
-    background-color: #ff6a6a;
-}
-
-.footerContentCute {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px 0 50px;
+    padding: 0;
 }
 
 /* ===== FOTO ===== */
 
 .footerPhotoCute {
-    width: 90px;
+    /* width: 90px;
     height: 90px;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--white);
+    margin: 0;
+    padding: 0; */
 }
 
 .footerPhotoCute img {
