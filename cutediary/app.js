@@ -38,8 +38,8 @@ app.use(express.static(path.join(__dirname, "public")));
 // ===== //
 
 // Importa as rotas externas (arquivo: routes/diaryRoutes.js)
-const diaryRoutes = require("./routes/diaryRoutes")
-app.use("/", diaryRoutes)
+const diaryRoutes = require("./routes/diaryRoutes");
+app.use("/", diaryRoutes);
 
 // ===== FIM DAS ROTAS IMPORTADAS ===== //
 
