@@ -7,6 +7,7 @@
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
+    "test": "jest --watchAll --passWithNoTests",
     "start": "concurrently \"nodemon app.js\" \"wait-on http-get://localhost:8080 && browser-sync start --proxy=http://localhost:8080 --port=3001 --files=views/**/*.handlebars public/**/*.* --delay 5000\""
   },
   "dependencies": {
@@ -23,6 +24,7 @@
   "devDependencies": {
     "browser-sync": "^3.0.4",
     "concurrently": "^9.2.1",
+    "jest": "^30.3.0",
     "nodemon": "^3.1.11",
     "wait-on": "^9.0.3"
   }
